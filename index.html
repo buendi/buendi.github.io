@@ -542,16 +542,7 @@ R = (4.5 - 2.0) / 0.015 = 166.6Ω
     </div>
   </div>
   <!--Semana 4 -->
-  <div class="semana-card">
-  <h3>Semana 4: Condensadores en Corriente Continua (D.C.)</h3>
-  <p>Descubrimos cómo los condensadores almacenan energía mediante un campo eléctrico entre dos placas metálicas. Aprendemos su comportamiento como filtros y almacenamiento de información binaria (bits: 0V o Vcc).</p>
   
-  <div class="reto-box">
-    <h4>Reto de la Semana:</h4>
-    <p id="textoReto4">Reto Semana 4: Monta un circuito con una resistencia de 1kΩ y un condensador electrolítico de 100µF en serie a una fuente de 5V. Mide el tiempo que tarda en cargarse por completo y observa qué sucede con el voltaje al desconectar la fuente. ¡Cuidado con la polaridad!</p>
-    <button id="copyReto4" class="btn-copy">Copiar Reto 4</button>
-  </div>
-</div>
 
 </section>
 
@@ -931,16 +922,7 @@ window.addEventListener('scroll', ()=>{
     a.classList.toggle('active', a.getAttribute('href') === '#'+current);
   });
 });
-  // Copy reto 4
-document.getElementById('copyReto4')?.addEventListener('click', ()=> {
-  const txt = `Reto Semana 4: Monta un circuito con una resistencia de 1kΩ y un condensador electrolítico de 100µF en serie a una fuente de 5V. Mide el tiempo que tarda en cargarse por completo y observa qué sucede con el voltaje al desconectar la fuente. ¡Cuidado con la polaridad!`;
-  navigator.clipboard.writeText(txt).then(()=> {
-    const btn = document.getElementById('copyReto4');
-    const old = btn.textContent;
-    btn.textContent = '¡Copiado!';
-    setTimeout(()=> btn.textContent = old, 1500);
-  });
-});
+
 
 </script>
 </body>
