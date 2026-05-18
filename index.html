@@ -3,88 +3,56 @@
 <head>
 <!-- Playables SDK -->
 <script>// Playables SDK v1.0.0
-// Game lifecycle bridge: rAF-based game-ready detection + event communication
 (function() {
   'use strict';
-
   if (window.playablesSDK) return;
-
   var HANDLER_NAME = 'playablesGameEventHandler';
   var ANDROID_BRIDGE_NAME = '_MetaPlayablesBridge';
   var RAF_FRAME_THRESHOLD = 3;
-
   var gameReadySent = false;
   var firstInteractionSent = false;
   var errorSent = false;
   var frameCount = 0;
   var originalRAF = window.requestAnimationFrame;
-
   function hasIOSBridge() {
-    return !!(window.webkit &&
-              window.webkit.messageHandlers &&
-              window.webkit.messageHandlers[HANDLER_NAME]);
+    return !!(window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers[HANDLER_NAME]);
   }
-
   function hasAndroidBridge() {
-    return !!(window[ANDROID_BRIDGE_NAME] &&
-              typeof window[ANDROID_BRIDGE_NAME].postEvent === 'function');
+    return !!(window[ANDROID_BRIDGE_NAME] && typeof window[ANDROID_BRIDGE_NAME].postEvent === 'function');
   }
-
   function isInIframe() {
     return !!(window.parent && window.parent !== window);
   }
-
   function sendEvent(eventName, payload) {
-    var message = {
-      type: eventName,
-      payload: payload || {},
-      timestamp: Date.now()
-    };
-
+    var message = {type: eventName, payload: payload || {}, timestamp: Date.now()};
     if (hasIOSBridge()) {
-      try {
-        window.webkit.messageHandlers[HANDLER_NAME].postMessage(message);
-      } catch (e) { /* ignore */ }
+      try { window.webkit.messageHandlers[HANDLER_NAME].postMessage(message); } catch (e) {}
       return;
     }
-
     if (hasAndroidBridge()) {
-    try {
-      var p = payload || {};
-      p.__secureToken = window.__fbAndroidBridgeAuthToken || '';
-      p.timestamp = message.timestamp;
-      window[ANDROID_BRIDGE_NAME].postEvent(
-        eventName,
-        JSON.stringify(p)
-      );
-    } catch (e) { /* ignore */ }
-    return;
-  }
-
-    if (isInIframe()) {
       try {
-        window.parent.postMessage(message, '*');
-      } catch (e) { /* ignore */ }
+        var p = payload || {};
+        p.__secureToken = window.__fbAndroidBridgeAuthToken || '';
+        p.timestamp = message.timestamp;
+        window[ANDROID_BRIDGE_NAME].postEvent(eventName, JSON.stringify(p));
+      } catch (e) {}
+      return;
+    }
+    if (isInIframe()) {
+      try { window.parent.postMessage(message, '*'); } catch (e) {}
       return;
     }
   }
-
   function onFrame() {
     if (gameReadySent) return;
-
     frameCount++;
     if (frameCount >= RAF_FRAME_THRESHOLD) {
       gameReadySent = true;
-      sendEvent('game_ready', {
-        frame_count: frameCount,
-        detected_at: Date.now()
-      });
+      sendEvent('game_ready', {frame_count: frameCount, detected_at: Date.now()});
       return;
     }
-
     originalRAF.call(window, onFrame);
   }
-
   if (originalRAF) {
     window.requestAnimationFrame = function(callback) {
       if (!gameReadySent) {
@@ -92,10 +60,7 @@
           frameCount++;
           if (frameCount >= RAF_FRAME_THRESHOLD && !gameReadySent) {
             gameReadySent = true;
-            sendEvent('game_ready', {
-              frame_count: frameCount,
-              detected_at: Date.now()
-            });
+            sendEvent('game_ready', {frame_count: frameCount, detected_at: Date.now()});
           }
           callback(timestamp);
         });
@@ -103,83 +68,55 @@
       return originalRAF.call(window, callback);
     };
   }
-
   function setupFirstInteractionDetection() {
     var events = ['touchstart', 'mousedown', 'keydown'];
-
     function onFirstInteraction() {
       if (firstInteractionSent) return;
       firstInteractionSent = true;
       sendEvent('user_interaction_start', null);
-
       for (var i = 0; i < events.length; i++) {
         document.removeEventListener(events[i], onFirstInteraction, true);
       }
     }
-
     for (var i = 0; i < events.length; i++) {
       document.addEventListener(events[i], onFirstInteraction, true);
     }
   }
-
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupFirstInteractionDetection);
   } else {
     setupFirstInteractionDetection();
   }
-
   window.addEventListener('error', function(event) {
     if (errorSent) return;
     errorSent = true;
-    sendEvent('error', {
-      message: event.message || 'Unknown error',
-      source: event.filename || '',
-      lineno: event.lineno || 0,
-      colno: event.colno || 0,
-      auto_captured: true
-    });
+    sendEvent('error', {message: event.message || 'Unknown error', source: event.filename || '', lineno: event.lineno || 0, colno: event.colno || 0, auto_captured: true});
   });
-
   window.addEventListener('unhandledrejection', function(event) {
     if (errorSent) return;
     errorSent = true;
     var reason = event.reason;
-    sendEvent('error', {
-      message: (reason instanceof Error) ? reason.message : String(reason),
-      type: 'unhandled_promise_rejection',
-      auto_captured: true
-    });
+    sendEvent('error', {message: (reason instanceof Error) ? reason.message : String(reason), type: 'unhandled_promise_rejection', auto_captured: true});
   });
-
   window.playablesSDK = {
     complete: function(score) {
-      sendEvent('game_ended', {
-        score: score,
-        completed: true
-      });
+      sendEvent('game_ended', {score: score, completed: true});
     },
-
     error: function(message) {
       if (errorSent) return;
       errorSent = true;
-      sendEvent('error', {
-        message: message || 'Unknown error',
-        auto_captured: false
-      });
+      sendEvent('error', {message: message || 'Unknown error', auto_captured: false});
     },
-
     sendEvent: function(eventName, payload) {
       if (!eventName || typeof eventName !== 'string') return;
       sendEvent(eventName, payload);
     }
   };
-
   if (originalRAF) {
     originalRAF.call(window, onFrame);
   }
 })();</script>
-<!-- PLAYABLE_TOUCH_PATCH_V1 --><script>
-(function() {
+<script>(function() {
   if (window.__playableTouchPatchInstalled) return;
   window.__playableTouchPatchInstalled = true;
   var origAdd = EventTarget.prototype.addEventListener;
@@ -383,28 +320,53 @@ textarea{min-height:120px;resize:vertical}
 footer{padding:36px 0;border-top:1px solid var(--border);color:var(--text-dim);font-size:.9rem;text-align:center}
 
 /* Modal */
-.modal-backdrop{position:fixed;inset:0;background:rgba(3,8,12,.72);backdrop-filter:blur(8px);display:none;place-items:center;z-index:100;padding:18px}
+.modal-backdrop{position:fixed;inset:0;background:rgba(3,8,12,.72);backdrop-filter:blur(8px);display:none;place-items:center;z-index:100;padding:18px;overflow-y:auto}
 .modal-backdrop.open{display:grid}
-.modal{width:min(880px,100%);max-height:86vh;overflow:auto;background:var(--bg-2);border:1px solid var(--border);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.55);animation:pop .25s ease}
+.modal{width:min(880px,100%);max-height:86vh;overflow-y:auto;background:var(--bg-2);border:1px solid var(--border);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.55);animation:pop .25s ease}
 .modal-head{position:sticky;top:0;background:linear-gradient(var(--bg-2), color-mix(in oklab, var(--bg-2) 85%, transparent));backdrop-filter:blur(8px);padding:16px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:start}
 .modal-body{padding:20px}
 .modal-body h3{margin:16px 0 8px}
+.modal-body h4{margin:12px 0 6px;color:var(--cyan)}
 .modal-body pre{background:#020608;border:1px solid rgba(0,229,255,.18);padding:12px;border-radius:10px;overflow:auto;margin:10px 0}
 .modal-body code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.92em;color:#a5f3fc}
 [data-theme="light"] .modal-body pre{background:#0b1220}
-.close-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);width:36px;height:36px;border-radius:10px;cursor:pointer}
+.close-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);width:36px;height:36px;border-radius:10px;cursor:pointer;flex-shrink:0}
 .close-btn:hover{color:var(--cyan);border-color:var(--cyan)}
 
-.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-@media (max-width:760px){.gallery-grid{grid-template-columns:1fr}}
-.gallery-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.25s}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.gallery-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.25s;cursor:pointer}
 .gallery-item:hover{transform:translateY(-3px);border-color:rgba(0,229,255,.4);box-shadow:var(--shadow)}
-.gallery-item img{width:100%;height:320px;object-fit:cover;display:block}
+.gallery-item img{width:100%;height:240px;object-fit:cover;display:block}
 .gallery-cap{padding:12px 14px;color:var(--text-dim);font-size:.9rem}
-.post-img{width:100%;border-radius:12px;border:1px solid var(--border);margin:14px 0;display:block}
-.caption{font-size:.85rem;color:var(--text-dim);text-align:center;margin-top:-6px;margin-bottom:10px}
 
-/* Reto */
+.pdf-embed{
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  margin:16px 0;
+}
+.pdf-stub{
+  background:rgba(0,229,255,.05);
+  padding:20px;
+  text-align:center;
+  border-radius:12px;
+}
+.pdf-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  background:rgba(0,229,255,.1);
+  border:1px solid var(--cyan);
+  color:var(--cyan);
+  border-radius:8px;
+  text-decoration:none;
+  cursor:pointer;
+  transition:.2s;
+  margin-top:8px;
+}
+.pdf-btn:hover{background:rgba(0,229,255,.2)}
+
 .reto-card{border:1px solid rgba(0,229,255,.55);box-shadow:0 0 0 1px rgba(0,229,255,.15) inset,0 0 30px rgba(0,229,255,.12),0 0 60px rgba(57,255,20,.06);background:linear-gradient(180deg, rgba(0,229,255,.08), rgba(57,255,20,.04))}
 .checklist{display:grid;gap:8px;margin:16px 0}
 .checklist label{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px dashed var(--border);border-radius:10px;background:rgba(255,255,255,.02);cursor:pointer;transition:.2s}
@@ -755,12 +717,47 @@ function openModal(semanaId) {
   const semana = dataSemanas.find(s => s.id === semanaId);
   if (!semana) return;
   
+  let galeriaHTML = '';
+  if (semana.galeria && semana.galeria.length > 0) {
+    galeriaHTML = `
+      <h4>📷 Galería de clase</h4>
+      <div class="gallery-grid">
+        ${semana.galeria.map(foto => `
+          <div class="gallery-item" onclick="event.stopPropagation(); window.open('${foto.imagen}')">
+            <img src="${foto.thumb || foto.imagen}" alt="${foto.titulo}">
+            <div class="gallery-cap">
+              <strong>${foto.titulo}</strong><br>
+              <small>${foto.descripcion}</small>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  let pdfHTML = '';
+  const pdfRecurso = semana.recursos.find(r => r.tipo === 'pdf');
+  if (pdfRecurso) {
+    pdfHTML = `
+      <h4>📄 Descargar PDF</h4>
+      <div class="pdf-stub">
+        <p style="margin:0 0 8px">Apuntes completos de la semana</p>
+        <a class="pdf-btn" href="${pdfRecurso.url}" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/><polyline points="7 11 12 16 17 11"/><line x1="12" y1="4" x2="12" y2="16"/></svg>
+          Descargar PDF
+        </a>
+      </div>
+    `;
+  }
+  
   document.getElementById('modalKicker').textContent = `Semana ${semana.numero}`;
   document.getElementById('modalTitle').textContent = semana.titulo;
   document.getElementById('modalBody').innerHTML = `
     <p style="color:var(--text-dim);margin-bottom:14px">${semana.fecha}</p>
     ${semana.contenido}
-    <h3>Reto de esta semana</h3>
+    ${pdfHTML}
+    ${galeriaHTML}
+    <h4>🎯 Reto de esta semana</h4>
     <p><strong>${semana.reto.descripcion}</strong></p>
     <div class="checklist">
       ${semana.reto.checklist.map(c => `<label><input type="checkbox"> ${c}</label>`).join('')}
