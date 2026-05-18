@@ -40,7 +40,7 @@
         }
       ],
       "recursos": [
-        { "titulo": "PDF Semana 1", "tipo": "pdf", "url": "pdfs/semana-1-fundamentos.pdf" },
+        { "titulo": "PDF Semana 1", "tipo": "pdf", "url": "pdfs/electronicaSuperpoderes.pdf" },
         { "titulo": "Tabla periódica", "url": "#semanas" }
       ],
       "reto": {
@@ -87,7 +87,7 @@
         }
       ],
       "recursos": [
-        { "titulo": "PDF Semana 2", "tipo": "pdf", "url": "pdfs/semana-2-ohm.pdf" },
+        { "titulo": "PDF Semana 2", "tipo": "pdf", "url": "pdfs/electronicaSuperpoderes.pdf" },
         { "titulo": "Tabla de resistividades", "url": "#semanas" }
       ],
       "reto": {
@@ -134,7 +134,7 @@
         }
       ],
       "recursos": [
-        { "titulo": "PDF Semana 3", "tipo": "pdf", "url": "pdfs/semana-3-leds.pdf" },
+        { "titulo": "PDF Semana 3", "tipo": "pdf", "url": "pdfs/electronicaSuperpoderes.pdf" },
         { "titulo": "Tabla E12", "url": "#semanas" }
       ],
       "reto": {
@@ -181,7 +181,7 @@
         }
       ],
       "recursos": [
-        { "titulo": "PDF Semana 4", "tipo": "pdf", "url": "pdfs/semana-4-transistores.pdf" },
+        { "titulo": "PDF Semana 4", "tipo": "pdf", "url": "pdfs/electronicaSuperpoderes.pdf" },
         { "titulo": "Datasheet BC547", "url": "#semanas" }
       ],
       "reto": {
