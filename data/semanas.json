@@ -1,0 +1,114 @@
+{
+  "filtros": [
+    { "id": "all", "label": "Todo" },
+    { "id": "fundamentos", "label": "Fundamentos" },
+    { "id": "medida", "label": "Medida" },
+    { "id": "leds", "label": "LEDs" },
+    { "id": "transistores", "label": "Transistores" }
+  ],
+  "semanas": [
+    {
+      "id": 1,
+      "numero": 1,
+      "titulo": "Átomos, electrones libres y por qué el cobre conduce",
+      "fecha": "2025-11-12",
+      "categoria": "Fundamentos",
+      "excerpt": "Del PDF oficial: estructura del átomo, conductores vs aislantes, la clave del cobre (≈8.5×10²² e⁻ libres/cm³). Primera práctica: reconocer componentes en mesa.",
+      "tags": ["átomo", "cobre", "corriente"],
+      "contenido": "<p><strong>Conceptos clave:</strong></p><ul><li>Estructura atómica: núcleo (protones, neutrones) + electrones en órbita</li><li>Electrones de valencia: determinan conductividad</li><li>Cobre: 29 protones, 1 electrón de valencia → 8.5×10²² e⁻ libres/cm³</li><li>Conductores vs aislantes vs semiconductores</li></ul><p><strong>Práctica de aula:</strong></p><ul><li>Identificar materiales en la mesa: cobre, aluminio, plástico, vidrio</li><li>Prueba de conductividad con multímetro en continuidad</li><li>Documentar en bitácora</li></ul>",
+      "recursos": [
+        { "titulo": "PDF Semana 1", "url": "#semanas" },
+        { "titulo": "Tabla periódica", "url": "#semanas" }
+      ],
+      "reto": {
+        "descripcion": "Identifica en la foto de clase cuántos electrones libres aproximados hay en 1mm³ de cobre (pista: 8.5×10²² e⁻/cm³). Convierte unidades y da el orden de magnitud.",
+        "checklist": [
+          "Convertir de cm³ a mm³",
+          "Calcular electrones en 1mm³",
+          "Expresar en notación científica",
+          "Anotar en bitácora"
+        ]
+      },
+      "bitacora": "Primera clase: identificación de componentes y materiales conductores. Muestra de cobre, aluminio y plástico. Multímetro en modo continuidad."
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "titulo": "Ley de Ohm en la vida real: medir sin miedo",
+      "fecha": "2025-11-19",
+      "categoria": "Medida",
+      "excerpt": "PDF integrado: V=I·R, potencia, uso correcto del multímetro. Práctica: medir resistencia de cables, caída de tensión en protoboard.",
+      "tags": ["multímetro", "protoboard", "serie"],
+      "contenido": "<p><strong>Ley de Ohm:</strong></p><ul><li>V = I × R (voltaje = corriente × resistencia)</li><li>P = V × I (potencia en vatios)</li><li>Configuración serie: resistencias suman</li><li>Configuración paralelo: conductancia suma</li></ul><p><strong>Mediciones:</strong></p><ul><li>Cable 10cm: ~0.2Ω</li><li>Cable 1m: ~0.8Ω</li><li>Protoboard añade ~0.3Ω</li></ul><p><strong>Seguridad:</strong></p><ul><li>Siempre en continuidad primero</li><li>Nunca medir corriente en voltaje</li><li>Fuente limitada para pruebas</li></ul>",
+      "recursos": [
+        { "titulo": "Tabla de resistividades", "url": "#semanas" },
+        { "titulo": "Manual multímetro", "url": "#semanas" }
+      ],
+      "reto": {
+        "descripcion": "Mide con el multímetro la resistencia de un cable de 10cm vs 1m. ¿Notas diferencia? Anota el valor en Ω y explica por qué la protoboard añade resistencia.",
+        "checklist": [
+          "Medir cable 10cm",
+          "Medir cable 1m",
+          "Registrar valores",
+          "Calcular diferencia por unidad de longitud"
+        ]
+      },
+      "bitacora": "Cable 10cm: 0.2Ω. Cable 1m: 0.8Ω. Protoboard suma ~0.3Ω. La resistencia es proporcional a la longitud."
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "titulo": "Diodos y LEDs: calcular la resistencia limitadora",
+      "fecha": "2025-11-26",
+      "categoria": "LEDs",
+      "excerpt": "Del dossier: curva I-V, Vf típica, por qué se queman. Cálculo con E12, código de colores y montaje a 4.5V. Incluye tabla de valores comerciales.",
+      "tags": ["LED", "E12", "cálculo"],
+      "contenido": "<p><strong>Diodos y LEDs:</strong></p><ul><li>Curva I-V característica</li><li>Vf (voltaje forward) típicos: Rojo 2.0V, Verde 2.2V, Azul 3.0V</li><li>If máxima: generalmente 20mA</li><li>Polaridad: ánodo (largo) a +V, cátodo (corto) a GND</li></ul><p><strong>Cálculo de resistencia limitadora:</strong></p><p>R = (Vfuente - Vf) / If</p><p>Ejemplo: Fuente 4.5V, LED rojo Vf=2.0V, If=15mA</p><p>R = (4.5 - 2.0) / 0.015 = 166.6Ω → E12: 180Ω</p><p><strong>Código de colores (4 bandas):</strong></p><ul><li>Marrón = 1, Negro = 0, Rojo = 2, etc.</li><li>180Ω = Marrón-Gris-Marrón</li></ul>",
+      "recursos": [
+        { "titulo": "Tabla E12", "url": "#semanas" },
+        { "titulo": "Tabla LED Vf", "url": "#semanas" }
+      ],
+      "reto": {
+        "descripcion": "Calcula la resistencia para un LED rojo con Vf=2V alimentado a 4.5V para obtener 15mA. ¿Qué código de colores usarías para una resistencia comercial E12?",
+        "checklist": [
+          "Calcular R ideal",
+          "Elegir resistencia E12",
+          "Determinar código de colores",
+          "Montar y verificar con multímetro"
+        ]
+      },
+      "bitacora": "Monté LED rojo a 4.5V con 180Ω. Vf real 1.96V, I=13.8mA. Casi perfecto con la teoría."
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "titulo": "Transistores bipolares: amplificación y conmutación",
+      "fecha": "2025-12-03",
+      "categoria": "Transistores",
+      "excerpt": "Introducción a BJTs (NPN y PNP), ganancia β, puntos de trabajo. Montaje con LEDs de mayor potencia. Simulación de relé electrónico.",
+      "tags": ["transistor", "amplificación", "conmutación"],
+      "contenido": "<p><strong>Transistor bipolar (BJT):</strong></p><ul><li>3 patas: colector (C), base (B), emisor (E)</li><li>NPN: corriente entra por base, sale por colector</li><li>Ganancia β (típica 100-300)</li><li>Ic = β × Ib</li></ul><p><strong>Aplicaciones:</strong></p><ul><li>Amplificador de señal pequeña</li><li>Conmutador de cargas (relé electrónico)</li><li>Control de potencia</li></ul><p><strong>Puntos de trabajo:</strong></p><ul><li>Corte: Ib=0, no conduce</li><li>Saturación: Ib suficiente, conduce máximo</li><li>Activo: Ib pequeña, Ic = β×Ib</li></ul><p><strong>Ejemplo: LED de 2W con transistor:</strong></p><ul><li>LED 2W necesita ~500mA (demasiado para GPIO)</li><li>Usar transistor NPN para conmutar la corriente</li><li>GPIO con resistencia de base (1kΩ) → transistor → LED + fuente 12V</li></ul>",
+      "recursos": [
+        { "titulo": "Datasheet BC547", "url": "#semanas" },
+        { "titulo": "Diagrama de polarización", "url": "#semanas" }
+      ],
+      "reto": {
+        "descripcion": "Diseña un circuito con transistor NPN para controlar un LED de 2W desde un GPIO (salida 3.3V, 5mA máx). Calcula Rb para saturación.",
+        "checklist": [
+          "Identificar tipo de transistor adecuado",
+          "Calcular Ib necesaria para saturación",
+          "Diseñar Rb (resistencia de base)",
+          "Verificar límites de potencia"
+        ]
+      },
+      "bitacora": "Primer contacto con transistores. LED de 500mA requiere transistor NPN para conmutación. Ganancia β≈200 en BC547."
+    }
+  ],
+  "retos": [
+    {
+      "semana": 4,
+      "titulo": "Reto actual (Semana 4)",
+      "descripcion": "Diseña un circuito con transistor NPN para controlar un LED de 2W desde un GPIO (salida 3.3V, 5mA máx). Calcula Rb para saturación."
+    }
+  ]
+}
