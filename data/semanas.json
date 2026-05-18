@@ -16,8 +16,31 @@
       "excerpt": "Del PDF oficial: estructura del átomo, conductores vs aislantes, la clave del cobre (≈8.5×10²² e⁻ libres/cm³). Primera práctica: reconocer componentes en mesa.",
       "tags": ["átomo", "cobre", "corriente"],
       "contenido": "<p><strong>Conceptos clave:</strong></p><ul><li>Estructura atómica: núcleo (protones, neutrones) + electrones en órbita</li><li>Electrones de valencia: determinan conductividad</li><li>Cobre: 29 protones, 1 electrón de valencia → 8.5×10²² e⁻ libres/cm³</li><li>Conductores vs aislantes vs semiconductores</li></ul><p><strong>Práctica de aula:</strong></p><ul><li>Identificar materiales en la mesa: cobre, aluminio, plástico, vidrio</li><li>Prueba de conductividad con multímetro en continuidad</li><li>Documentar en bitácora</li></ul>",
+      "galeria": [
+        {
+          "id": "s1-foto1",
+          "titulo": "Identificación de componentes",
+          "descripcion": "Primera toma de contacto con materiales conductores",
+          "imagen": "images/semana1-componentes.jpg",
+          "thumb": "images/thumbs/semana1-componentes-thumb.jpg"
+        },
+        {
+          "id": "s1-foto2",
+          "titulo": "Prueba de continuidad",
+          "descripcion": "Multímetro en modo continuidad para materiales",
+          "imagen": "images/semana1-multimetro.jpg",
+          "thumb": "images/thumbs/semana1-multimetro-thumb.jpg"
+        },
+        {
+          "id": "s1-foto3",
+          "titulo": "Mesa de trabajo",
+          "descripcion": "Configuración del aula técnica",
+          "imagen": "images/semana1-mesa.jpg",
+          "thumb": "images/thumbs/semana1-mesa-thumb.jpg"
+        }
+      ],
       "recursos": [
-        { "titulo": "PDF Semana 1", "url": "#semanas" },
+        { "titulo": "PDF Semana 1", "tipo": "pdf", "url": "pdfs/semana-1-fundamentos.pdf" },
         { "titulo": "Tabla periódica", "url": "#semanas" }
       ],
       "reto": {
@@ -40,9 +63,32 @@
       "excerpt": "PDF integrado: V=I·R, potencia, uso correcto del multímetro. Práctica: medir resistencia de cables, caída de tensión en protoboard.",
       "tags": ["multímetro", "protoboard", "serie"],
       "contenido": "<p><strong>Ley de Ohm:</strong></p><ul><li>V = I × R (voltaje = corriente × resistencia)</li><li>P = V × I (potencia en vatios)</li><li>Configuración serie: resistencias suman</li><li>Configuración paralelo: conductancia suma</li></ul><p><strong>Mediciones:</strong></p><ul><li>Cable 10cm: ~0.2Ω</li><li>Cable 1m: ~0.8Ω</li><li>Protoboard añade ~0.3Ω</li></ul><p><strong>Seguridad:</strong></p><ul><li>Siempre en continuidad primero</li><li>Nunca medir corriente en voltaje</li><li>Fuente limitada para pruebas</li></ul>",
+      "galeria": [
+        {
+          "id": "s2-foto1",
+          "titulo": "Medición con multímetro",
+          "descripcion": "Técnica correcta de medición en modo Ω",
+          "imagen": "images/semana2-medida.jpg",
+          "thumb": "images/thumbs/semana2-medida-thumb.jpg"
+        },
+        {
+          "id": "s2-foto2",
+          "titulo": "Montaje en protoboard",
+          "descripcion": "Circuito serie para medir caída de voltaje",
+          "imagen": "images/semana2-protoboard.jpg",
+          "thumb": "images/thumbs/semana2-protoboard-thumb.jpg"
+        },
+        {
+          "id": "s2-foto3",
+          "titulo": "Cables de diferente longitud",
+          "descripcion": "Comparación de resistencia por longitud",
+          "imagen": "images/semana2-cables.jpg",
+          "thumb": "images/thumbs/semana2-cables-thumb.jpg"
+        }
+      ],
       "recursos": [
-        { "titulo": "Tabla de resistividades", "url": "#semanas" },
-        { "titulo": "Manual multímetro", "url": "#semanas" }
+        { "titulo": "PDF Semana 2", "tipo": "pdf", "url": "pdfs/semana-2-ohm.pdf" },
+        { "titulo": "Tabla de resistividades", "url": "#semanas" }
       ],
       "reto": {
         "descripcion": "Mide con el multímetro la resistencia de un cable de 10cm vs 1m. ¿Notas diferencia? Anota el valor en Ω y explica por qué la protoboard añade resistencia.",
@@ -64,9 +110,32 @@
       "excerpt": "Del dossier: curva I-V, Vf típica, por qué se queman. Cálculo con E12, código de colores y montaje a 4.5V. Incluye tabla de valores comerciales.",
       "tags": ["LED", "E12", "cálculo"],
       "contenido": "<p><strong>Diodos y LEDs:</strong></p><ul><li>Curva I-V característica</li><li>Vf (voltaje forward) típicos: Rojo 2.0V, Verde 2.2V, Azul 3.0V</li><li>If máxima: generalmente 20mA</li><li>Polaridad: ánodo (largo) a +V, cátodo (corto) a GND</li></ul><p><strong>Cálculo de resistencia limitadora:</strong></p><p>R = (Vfuente - Vf) / If</p><p>Ejemplo: Fuente 4.5V, LED rojo Vf=2.0V, If=15mA</p><p>R = (4.5 - 2.0) / 0.015 = 166.6Ω → E12: 180Ω</p><p><strong>Código de colores (4 bandas):</strong></p><ul><li>Marrón = 1, Negro = 0, Rojo = 2, etc.</li><li>180Ω = Marrón-Gris-Marrón</li></ul>",
+      "galeria": [
+        {
+          "id": "s3-foto1",
+          "titulo": "LED rojo montado",
+          "descripcion": "LED de 2V con resistencia limitadora a 4.5V",
+          "imagen": "images/semana3-led.jpg",
+          "thumb": "images/thumbs/semana3-led-thumb.jpg"
+        },
+        {
+          "id": "s3-foto2",
+          "titulo": "Código de colores",
+          "descripcion": "Lectura correcta de resistencias de 4 bandas",
+          "imagen": "images/semana3-colores.jpg",
+          "thumb": "images/thumbs/semana3-colores-thumb.jpg"
+        },
+        {
+          "id": "s3-foto3",
+          "titulo": "LEDs multicolor",
+          "descripcion": "Comparación de Vf para diferentes colores",
+          "imagen": "images/semana3-multicolor.jpg",
+          "thumb": "images/thumbs/semana3-multicolor-thumb.jpg"
+        }
+      ],
       "recursos": [
-        { "titulo": "Tabla E12", "url": "#semanas" },
-        { "titulo": "Tabla LED Vf", "url": "#semanas" }
+        { "titulo": "PDF Semana 3", "tipo": "pdf", "url": "pdfs/semana-3-leds.pdf" },
+        { "titulo": "Tabla E12", "url": "#semanas" }
       ],
       "reto": {
         "descripcion": "Calcula la resistencia para un LED rojo con Vf=2V alimentado a 4.5V para obtener 15mA. ¿Qué código de colores usarías para una resistencia comercial E12?",
@@ -88,9 +157,32 @@
       "excerpt": "Introducción a BJTs (NPN y PNP), ganancia β, puntos de trabajo. Montaje con LEDs de mayor potencia. Simulación de relé electrónico.",
       "tags": ["transistor", "amplificación", "conmutación"],
       "contenido": "<p><strong>Transistor bipolar (BJT):</strong></p><ul><li>3 patas: colector (C), base (B), emisor (E)</li><li>NPN: corriente entra por base, sale por colector</li><li>Ganancia β (típica 100-300)</li><li>Ic = β × Ib</li></ul><p><strong>Aplicaciones:</strong></p><ul><li>Amplificador de señal pequeña</li><li>Conmutador de cargas (relé electrónico)</li><li>Control de potencia</li></ul><p><strong>Puntos de trabajo:</strong></p><ul><li>Corte: Ib=0, no conduce</li><li>Saturación: Ib suficiente, conduce máximo</li><li>Activo: Ib pequeña, Ic = β×Ib</li></ul><p><strong>Ejemplo: LED de 2W con transistor:</strong></p><ul><li>LED 2W necesita ~500mA (demasiado para GPIO)</li><li>Usar transistor NPN para conmutar la corriente</li><li>GPIO con resistencia de base (1kΩ) → transistor → LED + fuente 12V</li></ul>",
+      "galeria": [
+        {
+          "id": "s4-foto1",
+          "titulo": "Transistor NPN BC547",
+          "descripcion": "Identificación de patas: colector, base, emisor",
+          "imagen": "images/semana4-transistor.jpg",
+          "thumb": "images/thumbs/semana4-transistor-thumb.jpg"
+        },
+        {
+          "id": "s4-foto2",
+          "titulo": "Circuito conmutador",
+          "descripcion": "LED de 2W controlado por transistor desde GPIO",
+          "imagen": "images/semana4-conmutador.jpg",
+          "thumb": "images/thumbs/semana4-conmutador-thumb.jpg"
+        },
+        {
+          "id": "s4-foto3",
+          "titulo": "Medición de corriente",
+          "descripcion": "Verificación de Ib y Ic con multímetro",
+          "imagen": "images/semana4-medida.jpg",
+          "thumb": "images/thumbs/semana4-medida-thumb.jpg"
+        }
+      ],
       "recursos": [
-        { "titulo": "Datasheet BC547", "url": "#semanas" },
-        { "titulo": "Diagrama de polarización", "url": "#semanas" }
+        { "titulo": "PDF Semana 4", "tipo": "pdf", "url": "pdfs/semana-4-transistores.pdf" },
+        { "titulo": "Datasheet BC547", "url": "#semanas" }
       ],
       "reto": {
         "descripcion": "Diseña un circuito con transistor NPN para controlar un LED de 2W desde un GPIO (salida 3.3V, 5mA máx). Calcula Rb para saturación.",
