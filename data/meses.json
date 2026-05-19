@@ -1,0 +1,154 @@
+{
+  "meses": [
+    {
+      "id": 1,
+      "numero": 1,
+      "titulo": "Fundamentos: Del Átomo a la Corriente",
+      "fecha": "2026-01-15",
+      "categoria": "Teoría",
+      "excerpt": "Introducción a los conceptos atómicos, carga eléctrica, corriente continua y circuitos básicos.",
+      "tags": ["Átomo", "Corriente", "Voltaje"],
+      "contenido": "<h3>Contenido del mes</h3><p>En este mes exploramos los fundamentos de la electrónica, desde la estructura atómica hasta los primeros circuitos con resistencias y LEDs.</p><h4>Temas cubiertos:</h4><ul><li>Estructura del átomo y electrones de valencia</li><li>Diferencia de potencial y voltaje</li><li>Corriente eléctrica (I = Q/t)</li><li>Resistencia y la Ley de Ohm</li><li>Circuitos en serie y paralelo</li><li>Primera práctica: LED con resistencia de protección</li></ul>",
+      "bitacora": "Primera sesión. Estudiantes muestran interés en las mediciones prácticas. Se completó el cálculo de resistencia para LED.",
+      "recursos": [
+        {
+          "titulo": "PDF Mes 1",
+          "tipo": "pdf",
+          "url": "https://example.com/mes1.pdf"
+        }
+      ],
+      "reto": {
+        "descripcion": "Calcula la resistencia necesaria para un LED rojo (Vf=2.0V) conectado a 5V con una corriente de 20mA, luego mídelo con el multímetro.",
+        "checklist": [
+          "Calcular R usando Ley de Ohm",
+          "Identificar la resistencia E12 más cercana",
+          "Identificar el código de colores",
+          "Montar el circuito en protoboard",
+          "Medir y documentar resultados"
+        ]
+      },
+      "galeria": [
+        {
+          "titulo": "Medición con multímetro",
+          "descripcion": "Estudiante midiendo resistencia",
+          "imagen": "https://via.placeholder.com/400x300?text=Medici%C3%B3n+1",
+          "thumb": "https://via.placeholder.com/200x150?text=Medici%C3%B3n+1"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "titulo": "Semiconductores: Diodos y LEDs",
+      "fecha": "2026-02-15",
+      "categoria": "Práctica",
+      "excerpt": "Entendiendo el funcionamiento de diodos, características de LEDs, y construcción de circuitos luminosos.",
+      "tags": ["Diodos", "LEDs", "Semiconductores"],
+      "contenido": "<h3>Contenido del mes</h3><p>Profundizamos en los semiconductores, específicamente diodos y LEDs, aprendiendo sus características y cómo trabajar con ellos en circuitos reales.</p><h4>Temas cubiertos:</h4><ul><li>Estructura interna de diodos</li><li>Polarización directa e inversa</li><li>Características voltaje-corriente (curva V-I)</li><li>Especificaciones de LEDs (Vf, If máx, ángulo de visión)</li><li>Datasheets y símbolos</li><li>Práctica: Matriz de LEDs en protoboard</li></ul>",
+      "bitacora": "Estudiantes aprenden a leer datasheets. Se construyó una matriz 3x3 de LEDs con resistencias individuales.",
+      "recursos": [
+        {
+          "titulo": "PDF Mes 2",
+          "tipo": "pdf",
+          "url": "https://example.com/mes2.pdf"
+        }
+      ],
+      "reto": {
+        "descripcion": "Diseña una matriz 2x2 de LEDs de diferentes colores con protección de corriente individual. Mide el consumo total.",
+        "checklist": [
+          "Seleccionar 4 LEDs de diferentes colores",
+          "Calcular resistencias para cada LED",
+          "Montar en protoboard",
+          "Medir corriente total y por LED",
+          "Documentar especificaciones observadas"
+        ]
+      },
+      "galeria": []
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "titulo": "Transistores: Amplificación y Conmutación",
+      "fecha": "2026-03-15",
+      "categoria": "Teoría",
+      "excerpt": "Introducción a transistores BJT y MOSFET, modos de operación, y aplicaciones en circuitos de control.",
+      "tags": ["Transistores", "BJT", "MOSFET"],
+      "contenido": "<h3>Contenido del mes</h3><p>Los transistores son componentes fundamentales para amplificación y conmutación. Este mes exploramos BJTs y MOSFETs.</p><h4>Temas cubiertos:</h4><ul><li>Transistor BJT: estructura NPN y PNP</li><li>Regiones de operación: corte, activa y saturación</li><li>Ganancia de corriente (β)</li><li>Transistor MOSFET: estructura y funcionamiento</li><li>Umbrales de conducción</li><li>Práctica: Amplificador simple y conmutación de carga</li></ul>",
+      "bitacora": "Conceptos complejos. Se repitió la lección de regiones de operación. Práctica de conmutación con éxito.",
+      "recursos": [
+        {
+          "titulo": "PDF Mes 3",
+          "tipo": "pdf",
+          "url": "https://example.com/mes3.pdf"
+        }
+      ],
+      "reto": {
+        "descripcion": "Construye un circuito conmutador con BJT que controle un LED de alta potencia. Mide corriente base y colector.",
+        "checklist": [
+          "Diseñar circuito conmutador",
+          "Calcular corriente base necesaria",
+          "Seleccionar BJT apropiado",
+          "Montar circuito",
+          "Medir Ib, Ic y verificar saturación",
+          "Documentar ganancia observada (Ic/Ib)"
+        ]
+      },
+      "galeria": []
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "titulo": "Amplificadores Operacionales",
+      "fecha": "2026-04-15",
+      "categoria": "Aplicaciones",
+      "excerpt": "Características, configuraciones básicas y aplicaciones prácticas de amplificadores operacionales (OpAmp).",
+      "tags": ["OpAmp", "Amplificación", "Comparadores"],
+      "contenido": "<h3>Contenido del mes</h3><p>Los amplificadores operacionales son bloques de construcción versátiles para circuitos analógicos. Aprendemos sus características fundamentales y aplicaciones.</p><h4>Temas cubiertos:</h4><ul><li>Características ideales vs reales de OpAmp</li><li>Configuración inversora y no inversora</li><li>Ganancia de voltaje (Av)</li><li>Seguidor de voltaje (buffer)</li><li>Comparador de voltaje</li><li>Limitaciones de velocidad y ancho de banda</li><li>Práctica: Amplificador con ganancia 10</li></ul>",
+      "bitacora": "Estudiantes construyen amplificador estable. Se explora compensación de frecuencia.",
+      "recursos": [
+        {
+          "titulo": "PDF Mes 4",
+          "tipo": "pdf",
+          "url": "https://example.com/mes4.pdf"
+        }
+      ],
+      "reto": {
+        "descripcion": "Diseña un amplificador no inversor con ganancia 5. Aplica una señal de 100mV y mide la salida con osciloscopio.",
+        "checklist": [
+          "Seleccionar OpAmp (ej: LM358)",
+          "Calcular resistencias para Av=5",
+          "Montar circuito en protoboard",
+          "Inyectar señal de prueba",
+          "Medir ganancia real",
+          "Documentar desviaciones"
+        ]
+      },
+      "galeria": []
+    }
+  ],
+  "filtros": [
+    {
+      "id": "all",
+      "label": "Todos"
+    },
+    {
+      "id": "teoría",
+      "label": "Teoría"
+    },
+    {
+      "id": "práctica",
+      "label": "Práctica"
+    },
+    {
+      "id": "aplicaciones",
+      "label": "Aplicaciones"
+    }
+  ],
+  "retos": [
+    {
+      "mes": 4,
+      "titulo": "Amplificador con Ganancia 5",
+      "descripcion": "Diseña un amplificador no inversor con ganancia 5. Aplica una señal de 100mV y mide la salida."
+    }
+  ]
+}
