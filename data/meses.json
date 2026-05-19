@@ -6,124 +6,177 @@
       "titulo": "Fundamentos: Del Átomo a la Corriente",
       "fecha": "2026-01-15",
       "categoria": "Teoría",
-      "excerpt": "Introducción a los conceptos atómicos, carga eléctrica, corriente continua y circuitos básicos.",
-      "tags": ["Átomo", "Corriente", "Voltaje"],
-      "contenido": "<h3>Contenido del mes</h3><p>En este mes exploramos los fundamentos de la electrónica, desde la estructura atómica hasta los primeros circuitos con resistencias y LEDs.</p><h4>Temas cubiertos:</h4><ul><li>Estructura del átomo y electrones de valencia</li><li>Diferencia de potencial y voltaje</li><li>Corriente eléctrica (I = Q/t)</li><li>Resistencia y la Ley de Ohm</li><li>Circuitos en serie y paralelo</li><li>Primera práctica: LED con resistencia de protección</li></ul>",
-      "bitacora": "Primera sesión. Estudiantes muestran interés en las mediciones prácticas. Se completó el cálculo de resistencia para LED.",
+      "excerpt": "Estructura atómica, electrones libres, diferencia de potencial. Introducción a la Ley de Ohm y primeras mediciones con multímetro.",
+      "tags": ["átomo", "ohm", "multímetro", "voltaje"],
+      "contenido": "<p>Esta primera sesión establece los superpoderes fundamentales del técnico electrónico:</p><h3>Temas cubiertos:</h3><ul><li><strong>Estructura del átomo:</strong> Núcleo, electrones, capas de valencia</li><li><strong>Corriente eléctrica:</strong> Movimiento de electrones, convención de signos</li><li><strong>Voltaje (Diferencia de Potencial):</strong> Trabajo por unidad de carga</li><li><strong>Resistencia:</strong> Oposición al flujo de corriente</li><li><strong>Ley de Ohm:</strong> V = I × R, aplicaciones prácticas</li><li><strong>Medición:</strong> Uso correcto del multímetro en voltaje, corriente y resistencia</li></ul><p><strong>Objetivo:</strong> Comprender por qué fluye la corriente y cómo medirla sin miedo.</p>",
+      "bitacora": "Primer contacto con el multímetro. Todos pudieron medir voltaje de una pila AA. Próxima: circuitos en serie.",
+      "galeria": [
+        {
+          "titulo": "Medición de pila AA",
+          "descripcion": "Voltaje de una pila alcalina estándar",
+          "imagen": "/img/mes1-pila.jpg",
+          "thumb": "/img/mes1-pila-thumb.jpg"
+        },
+        {
+          "titulo": "Multímetro en acción",
+          "descripcion": "Posición correcta de pruebas en voltaje",
+          "imagen": "/img/mes1-multimetro.jpg",
+          "thumb": "/img/mes1-multimetro-thumb.jpg"
+        }
+      ],
       "recursos": [
         {
-          "titulo": "PDF Mes 1",
+          "titulo": "PDF Mes 1 - Fundamentos",
           "tipo": "pdf",
-          "url": "https://example.com/mes1.pdf"
+          "url": "/pdfs/mes1-fundamentos.pdf"
         }
       ],
       "reto": {
-        "descripcion": "Calcula la resistencia necesaria para un LED rojo (Vf=2.0V) conectado a 5V con una corriente de 20mA, luego mídelo con el multímetro.",
+        "titulo": "Medir y documentar",
+        "descripcion": "Mide el voltaje de 3 pilas diferentes (AA, 9V, botón) y documenta: modelo, voltaje medido, estado esperado.",
         "checklist": [
-          "Calcular R usando Ley de Ohm",
-          "Identificar la resistencia E12 más cercana",
-          "Identificar el código de colores",
-          "Montar el circuito en protoboard",
-          "Medir y documentar resultados"
+          "Pila AA medida y registrada",
+          "Pila 9V medida y registrada",
+          "Pila botón medida y registrada",
+          "Multímetro en posición correcta (rojo +, negro -)",
+          "Valores dentro de tolerancia esperada"
         ]
-      },
-      "galeria": [
-        {
-          "titulo": "Medición con multímetro",
-          "descripcion": "Estudiante midiendo resistencia",
-          "imagen": "https://via.placeholder.com/400x300?text=Medici%C3%B3n+1",
-          "thumb": "https://via.placeholder.com/200x150?text=Medici%C3%B3n+1"
-        }
-      ]
+      }
     },
     {
       "id": 2,
       "numero": 2,
-      "titulo": "Semiconductores: Diodos y LEDs",
+      "titulo": "Semiconductores: LEDs y Diodos",
       "fecha": "2026-02-15",
-      "categoria": "Práctica",
-      "excerpt": "Entendiendo el funcionamiento de diodos, características de LEDs, y construcción de circuitos luminosos.",
-      "tags": ["Diodos", "LEDs", "Semiconductores"],
-      "contenido": "<h3>Contenido del mes</h3><p>Profundizamos en los semiconductores, específicamente diodos y LEDs, aprendiendo sus características y cómo trabajar con ellos en circuitos reales.</p><h4>Temas cubiertos:</h4><ul><li>Estructura interna de diodos</li><li>Polarización directa e inversa</li><li>Características voltaje-corriente (curva V-I)</li><li>Especificaciones de LEDs (Vf, If máx, ángulo de visión)</li><li>Datasheets y símbolos</li><li>Práctica: Matriz de LEDs en protoboard</li></ul>",
-      "bitacora": "Estudiantes aprenden a leer datasheets. Se construyó una matriz 3x3 de LEDs con resistencias individuales.",
+      "categoria": "Componentes",
+      "excerpt": "Características de LEDs: Vf, If máximo. Cálculo de resistencia limitadora. Código de colores de resistencias. Pruebas prácticas.",
+      "tags": ["led", "diodo", "resistencia", "código de colores"],
+      "contenido": "<p>Aplicamos la Ley de Ohm a componentes reales. Entenderemos por qué un LED necesita una resistencia y cómo calcularla.</p><h3>Temas cubiertos:</h3><ul><li><strong>Diodo:</strong> Unión PN, polarización directa e inversa</li><li><strong>LED (Light Emitting Diode):</strong> Especificaciones Vf (voltaje directo) e If (corriente directa)</li><li><strong>Resistencia limitadora:</strong> Proteger el LED calculando R = (V_fuente - V_led) / I_deseada</li><li><strong>Código de colores:</strong> Bandas de 4 y 5 colores, tabla E12</li><li><strong>Tolerancia:</strong> ±5%, ±10%, importancia en diseño</li></ul><p><strong>Ejemplo real:</strong> LED rojo con Vf=2.0V, If=15mA, fuente 4.5V → R = (4.5-2.0)/0.015 = 166.6Ω → E12: 180Ω (Marrón-Gris-Marrón)</p>",
+      "bitacora": "Todos construyeron un LED con resistencia. Error común: invertir polaridad (ánodo/cátodo). El LED no se quema, solo no enciende.",
+      "galeria": [
+        {
+          "titulo": "LED encendido correctamente",
+          "descripcion": "Circuito con resistencia limitadora de 180Ω",
+          "imagen": "/img/mes2-led-ok.jpg",
+          "thumb": "/img/mes2-led-ok-thumb.jpg"
+        },
+        {
+          "titulo": "Tabla de códigos de colores",
+          "descripcion": "Referencia rápida 4 y 5 bandas",
+          "imagen": "/img/mes2-colores.jpg",
+          "thumb": "/img/mes2-colores-thumb.jpg"
+        },
+        {
+          "titulo": "Medición de voltaje en LED",
+          "descripcion": "Verificar Vf con multímetro en circuito",
+          "imagen": "/img/mes2-medicion.jpg",
+          "thumb": "/img/mes2-medicion-thumb.jpg"
+        }
+      ],
       "recursos": [
         {
-          "titulo": "PDF Mes 2",
+          "titulo": "PDF Mes 2 - Semiconductores",
           "tipo": "pdf",
-          "url": "https://example.com/mes2.pdf"
+          "url": "/pdfs/mes2-semiconductores.pdf"
         }
       ],
       "reto": {
-        "descripcion": "Diseña una matriz 2x2 de LEDs de diferentes colores con protección de corriente individual. Mide el consumo total.",
+        "titulo": "Diseña y construye un LED con resistencia",
+        "descripcion": "Dado: LED rojo (Vf=2.0V, If máx=20mA), fuente 5V. Calcula R, identifica el resistor con código de colores, monta el circuito y verifica con multímetro que If ≤ 15mA.",
         "checklist": [
-          "Seleccionar 4 LEDs de diferentes colores",
-          "Calcular resistencias para cada LED",
-          "Montar en protoboard",
-          "Medir corriente total y por LED",
-          "Documentar especificaciones observadas"
+          "Cálculo de R documentado (mostrar fórmula)",
+          "Resistor identificado correctamente con código de colores",
+          "Circuito montado sin cortocircuitos",
+          "LED enciende con brillo moderado",
+          "Corriente medida está entre 10-20mA"
         ]
-      },
-      "galeria": []
+      }
     },
     {
       "id": 3,
       "numero": 3,
-      "titulo": "Transistores: Amplificación y Conmutación",
+      "titulo": "Transistores: Control y Amplificación",
       "fecha": "2026-03-15",
-      "categoria": "Teoría",
-      "excerpt": "Introducción a transistores BJT y MOSFET, modos de operación, y aplicaciones en circuitos de control.",
-      "tags": ["Transistores", "BJT", "MOSFET"],
-      "contenido": "<h3>Contenido del mes</h3><p>Los transistores son componentes fundamentales para amplificación y conmutación. Este mes exploramos BJTs y MOSFETs.</p><h4>Temas cubiertos:</h4><ul><li>Transistor BJT: estructura NPN y PNP</li><li>Regiones de operación: corte, activa y saturación</li><li>Ganancia de corriente (β)</li><li>Transistor MOSFET: estructura y funcionamiento</li><li>Umbrales de conducción</li><li>Práctica: Amplificador simple y conmutación de carga</li></ul>",
-      "bitacora": "Conceptos complejos. Se repitió la lección de regiones de operación. Práctica de conmutación con éxito.",
+      "categoria": "Control",
+      "excerpt": "BJT y MOSFET: estructura, regiones de operación, saturación, corte. Circuitos de conmutación (switching). Aplicaciones en relés.",
+      "tags": ["transistor", "bjt", "mosfet", "conmutación"],
+      "contenido": "<p>El transistor es la pieza clave del electrónico moderno. Actúa como interruptor controlado (ON/OFF) y amplificador de señal.</p><h3>Temas cubiertos:</h3><ul><li><strong>BJT (Bipolar Junction Transistor):</strong> Base, colector, emisor. Ganancia hFE</li><li><strong>MOSFET (Metal Oxide Semiconductor):</strong> Gate, drain, source. Ventajas en switching</li><li><strong>Regiones:</strong> Corte (OFF), saturación (ON totalmente), lineal (amplificación)</li><li><strong>Conmutación:</strong> Circuito relé, diodo de protección (flyback)</li><li><strong>Disipación:</strong> Potencia, temperatura, disipadores</li></ul><p><strong>Aplicación:</strong> Controlar un relé de 24V con señal de 5V desde un microcontrolador.</p>",
+      "bitacora": "Transistor BJT 2N2222 usado para conmutar relé. Algunos olvidaron el diodo 1N4007 en paralelo con la bobina (inducción).",
+      "galeria": [
+        {
+          "titulo": "Circuito de relé con BJT",
+          "descripcion": "Base resistida desde GPIO, diodo de protección en paralelo",
+          "imagen": "/img/mes3-rele.jpg",
+          "thumb": "/img/mes3-rele-thumb.jpg"
+        },
+        {
+          "titulo": "Medición de Vbe (voltaje base-emisor)",
+          "descripcion": "0.7V típico en silicio cuando BJT está saturado",
+          "imagen": "/img/mes3-vbe.jpg",
+          "thumb": "/img/mes3-vbe-thumb.jpg"
+        }
+      ],
       "recursos": [
         {
-          "titulo": "PDF Mes 3",
+          "titulo": "PDF Mes 3 - Transistores",
           "tipo": "pdf",
-          "url": "https://example.com/mes3.pdf"
+          "url": "/pdfs/mes3-transistores.pdf"
         }
       ],
       "reto": {
-        "descripcion": "Construye un circuito conmutador con BJT que controle un LED de alta potencia. Mide corriente base y colector.",
+        "titulo": "Diseña circuito de relé controlado por GPIO",
+        "descripcion": "GPIO (5V) debe activar relé 24V/1A. Usa BJT 2N2222 (hFE≥100), resistencia base apropiada (Ib = Ic_sat / hFE + margen), y diodo 1N4007 de protección.",
         "checklist": [
-          "Diseñar circuito conmutador",
-          "Calcular corriente base necesaria",
-          "Seleccionar BJT apropiado",
-          "Montar circuito",
-          "Medir Ib, Ic y verificar saturación",
-          "Documentar ganancia observada (Ic/Ib)"
+          "Cálculo de Rb documentado con margen de seguridad",
+          "BJT identificado y orientación correcta (E, B, C)",
+          "Diodo 1N4007 en paralelo inverso con bobina",
+          "Relé funciona (chasquido audible)",
+          "Medición: Vbe ≈ 0.7V, Ic < 100mA en saturación"
         ]
-      },
-      "galeria": []
+      }
     },
     {
       "id": 4,
       "numero": 4,
-      "titulo": "Amplificadores Operacionales",
+      "titulo": "Amplificadores Operacionales: El Corazón del Sensor",
       "fecha": "2026-04-15",
-      "categoria": "Aplicaciones",
-      "excerpt": "Características, configuraciones básicas y aplicaciones prácticas de amplificadores operacionales (OpAmp).",
-      "tags": ["OpAmp", "Amplificación", "Comparadores"],
-      "contenido": "<h3>Contenido del mes</h3><p>Los amplificadores operacionales son bloques de construcción versátiles para circuitos analógicos. Aprendemos sus características fundamentales y aplicaciones.</p><h4>Temas cubiertos:</h4><ul><li>Características ideales vs reales de OpAmp</li><li>Configuración inversora y no inversora</li><li>Ganancia de voltaje (Av)</li><li>Seguidor de voltaje (buffer)</li><li>Comparador de voltaje</li><li>Limitaciones de velocidad y ancho de banda</li><li>Práctica: Amplificador con ganancia 10</li></ul>",
-      "bitacora": "Estudiantes construyen amplificador estable. Se explora compensación de frecuencia.",
+      "categoria": "Circuitos Analógicos",
+      "excerpt": "OpAmp ideal vs real. Configuraciones: seguidor, inversor, sumador, comparador. Aplicación a sensores. Retroalimentación negativa.",
+      "tags": ["opamp", "amplificador", "retroalimentación", "sensor"],
+      "contenido": "<p>El amplificador operacional (OpAmp) es el bloque constructor de la electrónica analógica moderna. Con solo 5 pines y realimentación, logra operaciones matemáticas.</p><h3>Temas cubiertos:</h3><ul><li><strong>OpAmp ideal:</strong> Ganancia infinita, impedancia entrada infinita, impedancia salida cero</li><li><strong>Parámetro real:</strong> Slew rate, GBW (ganancia × ancho de banda), offset de entrada</li><li><strong>Seguidor de voltaje (buffer):</strong> Ganancia unitaria, alta impedancia entrada</li><li><strong>Amplificador inversor:</strong> Ganancia = -Rf/Ri</li><li><strong>Comparador:</strong> Convertir señal analógica a digital (ON/OFF)</li><li><strong>Sensor + OpAmp:</strong> Acondicionamiento de señal débil</li></ul><p><strong>IC típico:</strong> LM358, TL072, OP07 según aplicación.</p>",
+      "bitacora": "Todos midieron offset de entrada (pocos mV). Comparador con histéresis es tema complejo pero muy útil. Próximo mes: PLC y lógica.",
+      "galeria": [
+        {
+          "titulo": "Seguidor de voltaje con LM358",
+          "descripcion": "Entrada no inversora = salida, impedancia entrada MΩ",
+          "imagen": "/img/mes4-seguidor.jpg",
+          "thumb": "/img/mes4-seguidor-thumb.jpg"
+        },
+        {
+          "titulo": "Comparador de voltaje",
+          "descripcion": "Entrada + vs -, salida HIGH si V+ > V-",
+          "imagen": "/img/mes4-comparador.jpg",
+          "thumb": "/img/mes4-comparador-thumb.jpg"
+        }
+      ],
       "recursos": [
         {
-          "titulo": "PDF Mes 4",
+          "titulo": "PDF Mes 4 - OpAmp",
           "tipo": "pdf",
-          "url": "https://example.com/mes4.pdf"
+          "url": "/pdfs/mes4-opamp.pdf"
         }
       ],
       "reto": {
-        "descripcion": "Diseña un amplificador no inversor con ganancia 5. Aplica una señal de 100mV y mide la salida con osciloscopio.",
+        "titulo": "Construye amplificador inversor 10x",
+        "descripcion": "Usa LM358, Ri=1kΩ, Rf=10kΩ. Entrada señal 100mV de generador. Mide: ganancia real, offset, ancho de banda (-3dB). Compara con fórmula teórica.",
         "checklist": [
-          "Seleccionar OpAmp (ej: LM358)",
-          "Calcular resistencias para Av=5",
-          "Montar circuito en protoboard",
-          "Inyectar señal de prueba",
-          "Medir ganancia real",
-          "Documentar desviaciones"
+          "Resistencias identificadas y valor correcto (1k y 10k)",
+          "Alimentación ±15V o dual conectada",
+          "Generador conectado a entrada inversora via Ri",
+          "Ganancia medida ≈ -10 (invierte fase)",
+          "Offset salida < 50mV con entrada = 0V"
         ]
-      },
-      "galeria": []
+      }
     }
   ],
   "filtros": [
@@ -136,19 +189,24 @@
       "label": "Teoría"
     },
     {
-      "id": "práctica",
-      "label": "Práctica"
+      "id": "componentes",
+      "label": "Componentes"
     },
     {
-      "id": "aplicaciones",
-      "label": "Aplicaciones"
+      "id": "control",
+      "label": "Control"
+    },
+    {
+      "id": "circuitos analógicos",
+      "label": "Analógico"
     }
   ],
   "retos": [
     {
+      "id": 1,
       "mes": 4,
-      "titulo": "Amplificador con Ganancia 5",
-      "descripcion": "Diseña un amplificador no inversor con ganancia 5. Aplica una señal de 100mV y mide la salida."
+      "titulo": "Amplificador Inversor 10x",
+      "descripcion": "Construye amplificador inversor con LM358, Ri=1kΩ, Rf=10kΩ. Mide ganancia, offset y ancho de banda."
     }
   ]
 }
