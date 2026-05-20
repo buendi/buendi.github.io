@@ -12,9 +12,9 @@
       "bitacora": "Primer contacto con el multímetro. Todos pudieron medir voltaje de una pila AA. Próxima: circuitos en serie.",
       "galeria": [
         {
-          "titulo": "Medición de pila AA",
-          "descripcion": "Voltaje de una pila alcalina estándar",
-          "imagen": "/img/mes1-pila.jpg",
+          "titulo": "Código de colores",
+          "descripcion": "Leer Resistencias",
+          "imagen": "images/coloresCode.jpg",
           "thumb": "/img/mes1-pila-thumb.jpg"
         },
         {
