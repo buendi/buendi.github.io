@@ -4,12 +4,12 @@
       "id": 1,
       "numero": 1,
       "titulo": "Fundamentos: Del Átomo a la Corriente",
-      "fecha": "2026-01-15",
+      "fecha": "2026-Abril",
       "categoria": "Teoría",
-      "excerpt": "Estructura atómica, electrones libres, diferencia de potencial. Introducción a la Ley de Ohm y primeras mediciones con multímetro.",
-      "tags": ["átomo", "ohm", "multímetro", "voltaje"],
-      "contenido": "<p>Esta primera sesión establece los superpoderes fundamentales del técnico electrónico:</p><h3>Temas cubiertos:</h3><ul><li><strong>Estructura del átomo:</strong> Núcleo, electrones, capas de valencia</li><li><strong>Corriente eléctrica:</strong> Movimiento de electrones, convención de signos</li><li><strong>Voltaje (Diferencia de Potencial):</strong> Trabajo por unidad de carga</li><li><strong>Resistencia:</strong> Oposición al flujo de corriente</li><li><strong>Ley de Ohm:</strong> V = I × R, aplicaciones prácticas</li><li><strong>Medición:</strong> Uso correcto del multímetro en voltaje, corriente y resistencia</li></ul><p><strong>Objetivo:</strong> Comprender por qué fluye la corriente y cómo medirla sin miedo.</p>",
-      "bitacora": "Primer contacto con el multímetro. Todos pudieron medir voltaje de una pila AA. Próxima: circuitos en serie.",
+      "excerpt": "Estructura atómica, electrones libres, diferencia de potencial, energía, vatios. Introducción a la Ley de Ohm y aprendemos a leer Resistencias",
+      "tags": ["átomo", "ohm", "Resistencia", "voltaje"],
+      "contenido": "<p>Esta primera sesión establece los superpoderes fundamentales del técnico electrónico:</p><h3>Temas cubiertos:</h3><ul><li><strong>Estructura del átomo:</strong> Núcleo, electrones, electrón libre</li><li><strong>Corriente eléctrica:</strong> Movimiento de electrones, Intensidad, Amperios</li><li><strong>Voltaje (Diferencia de Potencial):</strong> Cargas positivas y negativas</li><li><strong>Resistencia:</strong> Oposición al flujo de corriente</li><li><strong>Ley de Ohm:</strong> V = I × R, aplicaciones prácticas</li><li><strong>Medición:</strong> Uso correcto del multímetro en voltaje, corriente y resistencia</li></ul><p><strong>Objetivo:</strong> Comprender por qué fluye la corriente y cómo medirla sin miedo.</p>",
+      "bitacora": "Primer contacto con la electricidad, de donde viene, manipulando y dirigiendo el movimiento de los electrones libres a través de un camino conductor se crea un circuito eléctrico",
       "galeria": [
         {
           "titulo": "Código de colores",
@@ -28,7 +28,7 @@
         {
           "titulo": "PDF Mes 1 - Fundamentos",
           "tipo": "pdf",
-          "url": "/pdfs/mes1-fundamentos.pdf"
+          "url": "PDF/mes1.pdf"
         }
       ],
       "reto": {
