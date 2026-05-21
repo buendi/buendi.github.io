@@ -92,7 +92,7 @@
         ]
       }
     },
-    <! -- {
+     {
       "id": 3,
       "numero": 3,
       "titulo": "Transistores: Control y Amplificación",
@@ -134,7 +134,7 @@
           "Medición: Vbe ≈ 0.7V, Ic < 100mA en saturación"
         ]
       }
-    }, -->
+    }, 
     {
       "id": 4,
       "numero": 4,
