@@ -78,8 +78,8 @@
         {
           "titulo": "Circuitos serie y paralelo",
           "descripcion": "Pruebas de Taller",
-          "imagen": "/img/mes2-colores.jpg",
-          "thumb": "/img/mes2-colores-thumb.jpg"
+          "imagen": "images/pract1.jpg",
+          "thumb": "images/pract1.jpg"
         },
         {
           "titulo": "Condensador",
