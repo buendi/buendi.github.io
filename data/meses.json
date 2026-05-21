@@ -92,6 +92,7 @@
         ]
       }
     },
+/*
     {
       "id": 3,
       "numero": 3,
@@ -209,4 +210,5 @@
       "descripcion": "Construye amplificador inversor con LM358, Ri=1kΩ, Rf=10kΩ. Mide ganancia, offset y ancho de banda."
     }
   ]
+*/
 }
