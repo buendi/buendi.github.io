@@ -107,7 +107,7 @@
         ]
       }
     }
-    
+   
   ],
   "filtros": [
     {
@@ -134,9 +134,9 @@
   "retos": [
     {
       "id": 1,
-      "mes": 4,
-      "titulo": "Amplificador Inversor 10x",
-      "descripcion": "Construye amplificador inversor con LM358, Ri=1kΩ, Rf=10kΩ. Mide ganancia, offset y ancho de banda."
+      "mes": 2,
+      "titulo": "Condensadores",
+      "descripcion": "Carga y descarga de un condensador"
     }
   ]
 }
