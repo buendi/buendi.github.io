@@ -24,6 +24,21 @@
           "thumb": "images/cortocircuito.jpg"
         }
       ],
+      "videos": [
+{
+"titulo": "Conceptos de electrónica",
+"descripcion": "voltaje,corriente,potencia y resistencia",
+"url": "https://www.youtube.com/embed/TnjnO8j0xqY",
+"duracion": "5:20"
+},
+{
+"titulo": "Circuitos electricos",
+"descripcion": "Ley de Ohm y Potencia",
+"url": "https://www.youtube.com/embed/tpt9FlNYq4k",
+"duracion": "22:26"
+}
+ ],
+}
       "recursos": [
         {
           "titulo": "PDF Mes 1 - Fundamentos",
