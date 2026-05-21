@@ -946,17 +946,19 @@ function openModal(mesId) {
   }
 
   let videosHTML = '';
-if (mes.videos && mes.videos.length > 0) {
-videosHTML = &lt;h4 style="margin-top:28px"&gt;🎬 Videos de referencia&lt;/h4&gt; &lt;div style="display:grid;gap:20px;margin:16px 0"&gt; ${mes.videos.map(video => &lt;div style="border:1.5px solid var(--border);border-radius:16px;padding:16px;background:var(--bg-3)"&gt; &lt;h5 style="color:var(--cyan);margin-bottom:8px"&gt;${video.titulo}</h5>
-<p style="color:var(--text-dim);font-size:.9rem;margin-bottom:12px">
-
-{video.url}" frameborder="0" allowfullscreen style="border-radius:8px"></iframe>
-<p style="font-size:.85rem;color:var(--text-dim);margin-top:8px">⏱️ ${video.duracion}</p>
-</div>
-`).join('')} 
-</div>
+  if (mes.videos && mes.videos.length > 0) {
+    videosHTML = `
+      <h4 style="margin-top:28px">🎬 Videos de referencia</h4>
+      <div style="display:grid;gap:20px;margin:16px 0">
+        ${mes.videos.map(video => `
+          <div style="border:1.5px solid var(--border);border-radius:12px;overflow:hidden">
+            <iframe width="100%" height="315" src="${video.url}" frameborder="0" allowfullscreen style="border-radius:8px"></iframe>
+            <p style="font-size:.85rem;color:var(--text-dim);margin-top:8px;padding:12px">⏱️ ${video.duracion}</p>
+          </div>
+        `).join('')}
+      </div>
     `;
-}
+  }
 
   let pdfHTML = '';
   const pdfRecurso = mes.recursos.find(r => r.tipo === 'pdf');
@@ -1004,63 +1006,67 @@ function setupEventListeners() {
     }
   });
 
-  document.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('click', filterMeses);
+  const searchInput = document.getElementById('search');
+  const chips = document.querySelectorAll('.chip');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const filter = chip.dataset.filter;
+      filterPosts(filter, searchInput.value);
+    });
   });
 
-  document.getElementById('search').addEventListener('input', searchMeses);
-  document.getElementById('menuBtn').addEventListener('click', toggleMenu);
+  searchInput.addEventListener('input', (e) => {
+    const activeChip = document.querySelector('.chip.active');
+    const filter = activeChip ? activeChip.dataset.filter : 'all';
+    filterPosts(filter, e.target.value.toLowerCase());
+  });
+
   document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+  document.getElementById('menuBtn').addEventListener('click', toggleMenu);
 }
 
-function searchMeses(e) {
-  const query = e.target.value.toLowerCase();
-  const posts = document.querySelectorAll('.post');
-  
-  posts.forEach(post => {
-    const search = post.dataset.search;
-    post.classList.toggle('hidden', !search.includes(query));
-  });
-}
-
-function filterMeses(e) {
-  const filter = e.target.dataset.filter;
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  e.target.classList.add('active');
-  
+function filterPosts(category, searchTerm) {
   const posts = document.querySelectorAll('.post');
   posts.forEach(post => {
-    if (filter === 'all') {
-      post.classList.remove('hidden');
-    } else {
-      post.classList.toggle('hidden', !post.dataset.tags.includes(filter));
-    }
+    const matchesCategory = category === 'all' || post.dataset.tags === category;
+    const matchesSearch = post.dataset.search.includes(searchTerm);
+    post.style.display = matchesCategory && matchesSearch ? '' : 'none';
   });
-}
-
-function toggleMenu() {
-  document.getElementById('navMenu').classList.toggle('open');
-}
-
-function toggleTheme() {
-  const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('theme', theme);
 }
 
 function formatDate(dateStr) {
-  const d = new Date(dateStr + 'T00:00:00Z');
-  const months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-  return `${d.getDate()} ${months[d.getMonth()]}`;
+  const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+  if (dateStr.includes('-')) {
+    const [year, month, day] = dateStr.split('-');
+    return `${parseInt(day)} de ${months[parseInt(month) - 1]}`;
+  }
+  return dateStr;
 }
 
 function copyChallenge(text) {
-  navigator.clipboard.writeText(text);
-  alert('Copiado!');
+  navigator.clipboard.writeText(text).then(() => {
+    alert('✓ Enunciado copiado');
+  });
 }
 
-loadData();
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme') || 'dark';
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
 
+function toggleMenu() {
+  const menu = document.getElementById('navMenu');
+  menu.classList.toggle('open');
+}
+
+// Initialize on load
+loadData();
 const savedTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
 </script>
