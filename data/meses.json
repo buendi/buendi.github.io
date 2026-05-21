@@ -177,7 +177,7 @@
           "Offset salida < 50mV con entrada = 0V"
         ]
       }
-    }
+    },
   ],
   "filtros": [
     {
