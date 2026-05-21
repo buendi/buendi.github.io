@@ -84,8 +84,8 @@
         {
           "titulo": "Condensador",
           "descripcion": "Funcionamiento",
-          "imagen": "/img/mes2-medicion.jpg",
-          "thumb": "/img/mes2-medicion-thumb.jpg"
+          "imagen": "images/capacitor1.jpg",
+          "thumb": "images/capacitor1.jpg"
         }
       ],
       "videos": [
