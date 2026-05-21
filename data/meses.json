@@ -70,10 +70,10 @@
       "bitacora": "Todos construyeron un LED con resistencia. Error común: invertir polaridad (ánodo/cátodo). El LED no se quema, solo no enciende.",
       "galeria": [
         {
-          "titulo": "LED encendido correctamente",
-          "descripcion": "Circuito con resistencia limitadora de 180Ω",
-          "imagen": "/img/mes2-led-ok.jpg",
-          "thumb": "/img/mes2-led-ok-thumb.jpg"
+          "titulo": "Serie y Paralelo",
+          "descripcion": "Circuito con resistencia y Led",
+          "imagen": "images/serieParalelo.jpg",
+          "thumb": "images/serieParalelo.jpg"
         },
         {
           "titulo": "Circuitos serie y paralelo",
@@ -82,8 +82,8 @@
           "thumb": "/img/mes2-colores-thumb.jpg"
         },
         {
-          "titulo": "Medición de voltaje en LED",
-          "descripcion": "Verificar Vf con multímetro en circuito",
+          "titulo": "Condensador",
+          "descripcion": "Funcionamiento",
           "imagen": "/img/mes2-medicion.jpg",
           "thumb": "/img/mes2-medicion-thumb.jpg"
         }
