@@ -76,8 +76,8 @@
           "thumb": "/img/mes2-led-ok-thumb.jpg"
         },
         {
-          "titulo": "Tabla de códigos de colores",
-          "descripcion": "Referencia rápida 4 y 5 bandas",
+          "titulo": "Circuitos serie y paralelo",
+          "descripcion": "Pruebas de Taller",
           "imagen": "/img/mes2-colores.jpg",
           "thumb": "/img/mes2-colores-thumb.jpg"
         },
@@ -86,6 +86,20 @@
           "descripcion": "Verificar Vf con multímetro en circuito",
           "imagen": "/img/mes2-medicion.jpg",
           "thumb": "/img/mes2-medicion-thumb.jpg"
+        }
+      ],
+      "videos": [
+        {
+          "titulo": "Conceptos de electrónica",
+          "descripcion": "Circuito con condensador",
+          "url": "https://www.youtube.com/embed/CVywtFTEz3I",
+          "duracion": "1:22"
+        },
+        {
+          "titulo": "Explosión de un Condensador",
+          "descripcion": "Ojo a la polaridad de los condensadores electrolíticos",
+          "url": "https://www.youtube.com/embed/1gJvRcDmfis",
+          "duracion": "00:47"
         }
       ],
       "recursos": [
