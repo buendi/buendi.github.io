@@ -82,10 +82,22 @@
           "thumb": "images/pract1.jpg"
         },
         {
-          "titulo": "Condensador",
-          "descripcion": "Funcionamiento",
+          "titulo": "Condensadores",
+          "descripcion": "Pruebas de Taller",
           "imagen": "images/capacitor1.jpg",
           "thumb": "images/capacitor1.jpg"
+        },
+        {
+          "titulo": "Condensadores",
+          "descripcion": "Pruebas de Taller",
+          "imagen": "images/capacitor2.jpg",
+          "thumb": "images/capacitor2.jpg"
+        },
+        {
+          "titulo": "Condensadores",
+          "descripcion": "Pruebas de Taller",
+          "imagen": "images/capacitor3.jpg",
+          "thumb": "images/capacitor3.jpg"
         }
       ],
       "videos": [
@@ -103,6 +115,11 @@
         }
       ],
       "recursos": [
+        {
+          "titulo": "PDF Mes 2 - Semiconductores",
+          "tipo": "pdf",
+          "url": "PDF/mes2.pdf"
+        },
         {
           "titulo": "PDF Mes 2 - Semiconductores",
           "tipo": "pdf",
