@@ -962,7 +962,7 @@ function openModal(mesId) {
 
   let pdfHTML = '';
   const pdfRecurso = mes.recursos.find(r => r.tipo === 'pdf');
-  if (pdfRecurso) {
+  if (pdfRecurso && pdfRecurso.length > 0) {
     pdfHTML = `
       <h4>📥 Descargar apuntes</h4>
       <a class="btn btn-primary" href="${pdfRecurso.url}" download style="margin-bottom:20px">
