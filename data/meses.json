@@ -61,7 +61,7 @@
     {
       "id": 2,
       "numero": 2,
-      "titulo": "Resistencias, Condensadores, Bobinas y quemando Leds",
+      "titulo": "Resistencias, Condensadores y quemando Leds",
       "fecha": "2026-Mayo",
       "categoria": "Componentes",
       "excerpt": "Características de los componentes : Vf, If máximo. Cálculo de resistencia limitadora. Código de colores de resistencias. Pruebas prácticas.",
@@ -112,6 +112,86 @@
           "descripcion": "Ojo a la polaridad de los condensadores electrolíticos",
           "url": "https://www.youtube.com/embed/1gJvRcDmfis",
           "duracion": "00:47"
+        }
+      ],
+      "recursos": [
+        {
+          "titulo": "PDF Mes 2 - Semiconductores",
+          "tipo": "pdf",
+          "url": "PDF/mes2.pdf"
+        },
+        {
+          "titulo": "PDF Mes 2 - Condensadores",
+          "tipo": "pdf",
+          "url": "PDF/solucionCapa.pdf"
+        }
+      ],
+      "reto": {
+        "titulo": "Diseña y construye un LED con resistencia",
+        "descripcion": "Dado: LED rojo (Vf=2.0V, If máx=20mA), fuente 5V. Calcula R, identifica el resistor con código de colores, monta el circuito y verifica con multímetro que If ≤ 15mA.",
+        "checklist": [
+          "Cálculo de R documentado (mostrar fórmula)",
+          "Resistor identificado correctamente con código de colores",
+          "Circuito montado sin cortocircuitos",
+          "LED enciende con brillo moderado",
+          "Corriente medida está entre 10-20mA"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "titulo": "Bobinas, Generadores de tensión, Multímetro , Interruptores",
+      "fecha": "2026-Junio",
+      "categoria": "Componentes",
+      "excerpt": "Características de los componentes : Vf, If máximo. Cálculo de resistencia limitadora. Código de colores de resistencias. Pruebas prácticas.",
+      "tags": ["led", "diodo", "resistencia", "código de colores"],
+      "contenido": "<p>Aplicamos la Ley de Ohm a componentes reales. Entenderemos por qué un LED necesita una resistencia y cómo calcularla.</p><h3>Temas cubiertos:</h3><ul><li><strong>Diodo:</strong> Unión PN, polarización directa e inversa</li><li><strong>LED (Light Emitting Diode):</strong> Especificaciones Vf (voltaje directo) e If (corriente directa)</li><li><strong>Resistencia limitadora:</strong> Proteger el LED calculando R = (V_fuente - V_led) / I_deseada</li><li><strong>Condensadores:</strong> tipos de condensadores, carga y descarga</li><li><strong>Bobinas:</strong> ±5%, ±10%, importancia en diseño</li></ul><p><strong>Ejemplo real:</strong> LED rojo con Vf=2.0V, If=15mA, fuente 4.5V → R = (4.5-2.0)/0.015 = 166.6Ω → E12: 180Ω (Marrón-Gris-Marrón)</p>",
+      "bitacora": "Todos construyeron un LED con resistencia. Error común: invertir polaridad (ánodo/cátodo). El LED no se quema, solo no enciende.",
+      "galeria": [
+        {
+          "titulo": "Serie y Paralelo",
+          "descripcion": "Circuito con resistencia y Led",
+          "imagen": "images/serieParalelo.jpg",
+          "thumb": "images/serieParalelo.jpg"
+        },
+        {
+          "titulo": "Circuitos serie y paralelo",
+          "descripcion": "Pruebas de Taller",
+          "imagen": "images/pract1.jpg",
+          "thumb": "images/pract1.jpg"
+        },
+        {
+          "titulo": "Condensadores",
+          "descripcion": "Pruebas de Taller",
+          "imagen": "images/capacitor1.jpg",
+          "thumb": "images/capacitor1.jpg"
+        },
+        {
+          "titulo": "Condensadores",
+          "descripcion": "Pruebas de Taller",
+          "imagen": "images/capacitor2.jpg",
+          "thumb": "images/capacitor2.jpg"
+        },
+        {
+          "titulo": "Condensadores",
+          "descripcion": "Pruebas de Taller",
+          "imagen": "images/capacitor3.jpg",
+          "thumb": "images/capacitor3.jpg"
+        }
+      ],
+      "videos": [
+        {
+          "titulo": "Inductores explicados",
+          "descripcion": "Inductores",
+          "url": "https://www.youtube.com/embed/Gckb8cS1h5g",
+          "duracion": "10:14"
+        },
+        {
+          "titulo": "Inductáncia en una Bobina",
+          "descripcion": "Bobinas",
+          "url": "https://www.youtube.com/embed/_IRm1wf0LAU",
+          "duracion": "06:08"
         }
       ],
       "recursos": [
