@@ -868,53 +868,7 @@ function renderReto(reto) {
   `;
 }
 
-function renderRecursos(meses) {
-  const recursosContainer = document.getElementById('recursos');
-  const allRecursos = [];
-  
-  meses.forEach(m => {
-    m.recursos.forEach(r => {
-      if (!allRecursos.find(ar => ar.titulo === r.titulo)) {
-        allRecursos.push(r);
-      }
-    });
-  });
 
-  recursosContainer.innerHTML = `
-    <div class="resource">
-      <div class="r-head">
-        <span>📄</span>
-        <strong>PDF Completo</strong>
-      </div>
-      <p style="color:var(--text-dim)">Dossier oficial con teoría y ejercicios</p>
-      <a class="btn btn-ghost" href="#meses" style="margin-top:auto">Ver en meses</a>
-    </div>
-    <div class="resource">
-      <div class="r-head">
-        <span>🧮</span>
-        <strong>Calculadora LED</strong>
-      </div>
-      <p style="color:var(--text-dim)">Calcula R limitadora automáticamente</p>
-      <a class="btn btn-ghost" href="#reto" style="margin-top:auto">Usar</a>
-    </div>
-    <div class="resource">
-      <div class="r-head">
-        <span>🎨</span>
-        <strong>Código de Colores</strong>
-      </div>
-      <p style="color:var(--text-dim)">Tabla interactiva 4 y 5 bandas</p>
-      <a class="btn btn-ghost" href="#meses" style="margin-top:auto">Explorar</a>
-    </div>
-    <div class="resource">
-      <div class="r-head">
-        <span>📊</span>
-        <strong>Plantilla Informe</strong>
-      </div>
-      <p style="color:var(--text-dim)">Para documentar tus mediciones</p>
-      <a class="btn btn-ghost" href="mailto:buendia.jabv@gmail.com" style="margin-top:auto">Solicitar</a>
-    </div>
-  `;
-}
 
 function openModal(mesId) {
   const mes = dataMeses.find(m => m.id === mesId);
