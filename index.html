@@ -666,6 +666,7 @@ details[open] summary{color:var(--cyan)}
         <li><a href="#inicio" class="active">Inicio</a></li>
         <li><a href="#meses">Meses</a></li>
         <li><a href="#reto">Reto</a></li>
+        <li><a href="taller-reparaciones/">🔧 Taller Reparaciones</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -946,7 +947,7 @@ function openModal(mesId) {
       <h4>📷 Fotos de la sesión</h4>
       <div class="gallery-grid">
         ${mes.galeria.map(foto => `
-          <div class="gallery-item" style="cursor:pointer" role="button" tabindex="0" data-image="${escapeHTML(foto.imagen)}" onclick="openImage(this.dataset.image); event.stopPropagation();" onkeydown="if(event.key==='Enter') { openImage(this.dataset.image); event.stopPropagation(); }">
+          <div class="gallery-item" style="cursor:pointer" role="button" tabindex="0" data-image="${escapeHTML(foto.imagen)}" onclick="openImage(this.dataset.image); event.stopPropagation();" onkeydown="if(event.key==='Enter')openImage(this.dataset.image)">
             <img src="${escapeHTML(foto.thumb || foto.imagen)}" alt="${escapeHTML(foto.titulo)}">
             <div class="gallery-cap">
               <strong>${escapeHTML(foto.titulo)}</strong>
@@ -1003,85 +1004,16 @@ function openModal(mesId) {
   `;
   
   modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function openImage(src) {
-  window.open(src, '_blank');
-}
-
-function setupEventListeners() {
-  closeModal.addEventListener('click', () => {
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-  
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
-
-  const searchInput = document.getElementById('search');
-  const chips = document.querySelectorAll('.chip');
-
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      chips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      const filter = chip.dataset.filter;
-      filterPosts(filter, searchInput.value);
-    });
-  });
-
-  searchInput.addEventListener('input', (e) => {
-    const activeChip = document.querySelector('.chip.active');
-    const filter = activeChip ? activeChip.dataset.filter : 'all';
-    filterPosts(filter, e.target.value.toLowerCase());
-  });
-
-  document.getElementById('themeBtn').addEventListener('click', toggleTheme);
-  document.getElementById('menuBtn').addEventListener('click', toggleMenu);
-}
-
-function filterPosts(category, searchTerm) {
-  const posts = document.querySelectorAll('.post');
-  posts.forEach(post => {
-    const matchesCategory = category === 'all' || post.dataset.tags === category;
-    const matchesSearch = post.dataset.search.includes(searchTerm);
-    post.style.display = matchesCategory && matchesSearch ? '' : 'none';
-  });
 }
 
 function formatDate(dateStr) {
-  const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-  if (dateStr && dateStr.includes('-')) {
-    const [year, month, day] = dateStr.split('-');
-    return `${parseInt(day)} de ${months[parseInt(month) - 1]}`;
-  }
-  return dateStr || '';
+  const opts = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateStr).toLocaleDateString('es-ES', opts);
 }
 
 function copyChallenge(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    alert('✓ Enunciado copiado');
-  }).catch(() => {
-    alert('Error al copiar');
-  });
-}
-
-function toggleTheme() {
-  const html = document.documentElement;
-  const current = html.getAttribute('data-theme') || 'dark';
-  const next = current === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-}
-
-function toggleMenu() {
-  const menu = document.getElementById('navMenu');
-  menu.classList.toggle('open');
+  navigator.clipboard.writeText(text);
+  alert('Enunciado copiado al portapapeles');
 }
 
 function handleContactSubmit(e) {
@@ -1090,20 +1022,56 @@ function handleContactSubmit(e) {
   const email = document.getElementById('email').value;
   const msg = document.getElementById('msg').value;
   
-  const subject = 'Consulta Superpoderes';
-  const body = `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${msg}`;
-  
-  window.location.href = `mailto:buendia.jabv@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const mailtoLink = `mailto:buendia.jabv@gmail.com?subject=Mensaje%20de%20${encodeURIComponent(nombre)}&body=${encodeURIComponent(`${msg}\n\nDe: ${nombre}\nCorreo: ${email}`)}`;
+  window.location.href = mailtoLink;
 }
 
-// Restore theme preference and load data on page load
-document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  }
-  loadData();
-});
+// Setup event listeners
+function setupEventListeners() {
+  closeModal.addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('open');
+  });
+  
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('navMenu').classList.toggle('open');
+  });
+  
+  document.getElementById('search').addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    document.querySelectorAll('[data-search]').forEach(post => {
+      const show = post.dataset.search.includes(query);
+      post.style.display = show ? '' : 'none';
+    });
+  });
+  
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      
+      const filter = chip.dataset.filter;
+      document.querySelectorAll('[data-tags]').forEach(post => {
+        const show = filter === 'all' || post.dataset.tags.includes(filter);
+        post.style.display = show ? '' : 'none';
+      });
+    });
+  });
+  
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    const theme = document.documentElement.getAttribute('data-theme');
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+  
+  // Load theme preference
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+// Load data on page load
+loadData();
 </script>
 </body>
 </html>
