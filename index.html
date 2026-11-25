@@ -664,7 +664,7 @@ details[open] summary{color:var(--cyan)}
     <nav>
       <ul id="navMenu">
         <li><a href="#inicio" class="active">Inicio</a></li>
-        <li><a href="#meses">Contenido</a></li>
+        <li><a href="#contenido">Contenido</a></li>
         <li><a href="#reto">Reto</a></li>
         <li><a href="taller-reparaciones/">🔧 Taller Reparaciones</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -698,7 +698,7 @@ details[open] summary{color:var(--cyan)}
       <h1><span class="title-grad">Superpoderes para Electrónicos</span></h1>
       <p class="subtitle">De la teoría atómica a los microprocesadores. Documentamos cada clase con apuntes, fotos y retos medibles. Aprender haciendo, siempre.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="#meses">Explorar contenido</a>
+        <a class="btn btn-primary" href="#contenido">Explorar contenido</a>
         <a class="btn btn-ghost" href="#reto">Ver reto actual</a>
       </div>
     </div>
@@ -716,7 +716,7 @@ eléctrico interno.
   </div>
 </main>
 
-<section id="meses">
+<section id="contenido">
   <div class="container">
     <div class="section-head">
       <h2>Contenido</h2>
@@ -735,7 +735,7 @@ eléctrico interno.
 <section id="reto">
   <div class="container">
     <div class="section-head">
-      <h2>Reto del Mes</h2>
+      <h2>Reto</h2>
       <p>Resuelve el problema, mide, documenta e interioriza el superpoder.</p>
     </div>
     <div class="reto-card" id="retoCard"></div>
@@ -999,7 +999,7 @@ function openModal(mesId) {
     ${videosHTML}
     ${galeriaHTML}
     
-    <h4 style="margin-top:32px">🎯 Reto de este mes</h4>
+    <h4 style="margin-top:32px">🎯 Reto</h4>
     <p style="font-weight:600;color:var(--text)">${escapeHTML(mes.reto.descripcion)}</p>
     <div class="checklist">
       ${mes.reto.checklist.map(c => `<label><input type="checkbox" /> ${escapeHTML(c)}</label>`).join('')}
