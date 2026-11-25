@@ -937,10 +937,10 @@ function renderReto(reto) {
   `;
 }
 
-function openModal(fichaId) {
-  const ficha = dataMeses.find(m => m.id === fichaId);
-  if (!ficha) {
-    console.error('Ficha not found:', fichaId);
+function openModal(mesId) {
+  const mes = dataMeses.find(m => m.id === mesId);
+  if (!mes) {
+    console.error('Ficha not found:', mesId);
     return;
   }
   
