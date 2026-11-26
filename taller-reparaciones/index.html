@@ -1,774 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔧 Taller de Reparaciones | Blog de Electrónica</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --accent: #f5576c;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --text: #333;
-            --border: #e0e0e0;
-            --success: #00d4aa;
-            --warning: #ffa502;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--dark);
-            min-height: 100vh;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Header mejorado */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 50px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            transform: translate(50%, -50%);
-        }
-
-        header h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Breadcrumb mejorado */
-        .breadcrumb {
-            background: var(--light);
-            padding: 12px 40px;
-            border-bottom: 2px solid var(--border);
-            font-size: 0.9em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .breadcrumb a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--secondary);
-            gap: 5px;
-        }
-
-        .breadcrumb span {
-            color: #666;
-        }
-
-        /* Navegación secundaria */
-        .nav-secondary {
-            background: white;
-            padding: 0 40px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            gap: 0;
-            overflow-x: auto;
-        }
-
-        .nav-secondary a {
-            padding: 15px 0;
-            margin-right: 40px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .nav-secondary a:hover,
-        .nav-secondary a.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        .main-content {
-            padding: 50px 40px;
-            flex: 1;
-        }
-
-        .section {
-            margin-bottom: 60px;
-            animation: fadeIn 0.6s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section h2 {
-            color: var(--primary);
-            margin-bottom: 35px;
-            font-size: 2em;
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 15px;
-            position: relative;
-        }
-
-        .section h2::before {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--secondary);
-            transition: width 0.6s ease;
-        }
-
-        .section h2:hover::before {
-            width: 100%;
-        }
-
-        /* Grid de tarjetas mejorado */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-            border-color: var(--primary);
-        }
-
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-size: 1.4em;
-            font-weight: 600;
-        }
-
-        .card p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.7;
-            flex-grow: 1;
-        }
-
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            font-size: 0.95em;
-            width: fit-content;
-            border: 2px solid transparent;
-        }
-
-        .card-link:hover {
-            transform: translateX(4px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Sección de modelos */
-        .models-section {
-            background: linear-gradient(135deg, var(--light) 0%, #f0f0f5 100%);
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
-        }
-
-        .models-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .model-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid var(--primary);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .model-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 100%;
-            background: rgba(102, 126, 234, 0.05);
-            border-radius: 10px;
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-
-        .model-card:hover {
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
-            transform: translateY(-5px);
-            border-left-color: var(--secondary);
-        }
-
-        .model-card:hover::after {
-            width: 100%;
-        }
-
-        .model-card h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.3em;
-            font-weight: 600;
-        }
-
-        .model-card p {
-            color: #555;
-            font-size: 0.95em;
-            margin-bottom: 8px;
-        }
-
-        .model-card .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-            margin-top: 12px;
-        }
-
-        .status.active {
-            background: rgba(0, 212, 170, 0.15);
-            color: #00a365;
-        }
-
-        .status.pending {
-            background: rgba(255, 165, 2, 0.15);
-            color: #cc7a00;
-        }
-
-        .add-model {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 30px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .add-model:hover {
-            transform: scale(1.02);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .add-model h4 {
-            margin-bottom: 12px;
-            font-size: 1.4em;
-            font-weight: 600;
-        }
-
-        .add-model p {
-            margin-bottom: 20px;
-            opacity: 0.95;
-            font-size: 1em;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 12px 32px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: 2px solid white;
-            font-size: 0.95em;
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Sección comunitaria */
-        .community-section {
-            background: linear-gradient(135deg, var(--accent) 0%, #ff1744 100%);
-            color: white;
-            padding: 50px 40px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .community-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-
-        .community-section h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-            font-weight: 700;
-        }
-
-        .community-section p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
-
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .feature-item:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-5px);
-        }
-
-        .feature-item strong {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1em;
-            font-weight: 600;
-        }
-
-        .feature-item span {
-            display: block;
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-
-        /* Footer mejorado */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 40px;
-            border-top: 3px solid var(--primary);
-            margin-top: auto;
-        }
-
-        footer p {
-            margin: 8px 0;
-            opacity: 0.8;
-        }
-
-        footer strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .footer-links {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            header {
-                padding: 30px 20px;
-            }
-
-            .main-content {
-                padding: 30px 20px;
-            }
-
-            .breadcrumb,
-            .nav-secondary {
-                padding: 0 20px;
-            }
-
-            .card-grid,
-            .models-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-secondary a {
-                margin-right: 20px;
-            }
-
-            .models-section,
-            .add-model,
-            .community-section {
-                padding: 25px 20px;
-            }
-
-            .section h2 {
-                font-size: 1.5em;
-            }
-
-            .community-section h3 {
-                font-size: 1.5em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.5em;
-            }
-
-            .section {
-                margin-bottom: 40px;
-            }
-
-            .card-link {
-                padding: 8px 16px;
-                font-size: 0.9em;
-            }
-
-            .features-list {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-links {
-                gap: 15px;
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0f14">
+  <meta name="description" content="Fichas técnicas de fabricantes de máquinas recreativas tipo B en Cataluña: manuales, averías, información técnica y contactos.">
+  <title>🎰 Archivo técnico de máquinas recreativas | Taller Jomali</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0a0f14;--surface:#111a22;--surface-hover:#1a2332;--text:#e6f1ff;--muted:#9fb3c8;--cyan:#00d9ff;--green:#00ff66;--border:rgba(0,217,255,.16);--shadow:0 12px 32px rgba(0,0,0,.24);--warning:#ffd166}
+    [data-theme="light"]{color-scheme:light;--bg:#f8fafc;--surface:#fff;--surface-hover:#f1f5f9;--text:#0f172a;--muted:#475569;--border:rgba(15,23,42,.14);--shadow:0 12px 28px rgba(0,0,0,.1)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}.container{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:-.03em;color:var(--cyan);white-space:nowrap}.nav ul{display:flex;align-items:center;gap:24px;padding:0;margin:0;list-style:none}.nav nav a{color:var(--muted);font-size:.94rem}.nav nav a:hover,.nav nav a:focus-visible{color:var(--cyan)}.actions{display:flex;gap:8px}.icon-btn{width:40px;height:40px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text);cursor:pointer}.menu-toggle{display:none}
+    .hero{padding:76px 0 58px;background:radial-gradient(ellipse at 15% 30%,rgba(0,217,255,.13),transparent 55%)}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}.eyebrow,.tag{display:inline-flex;align-items:center;gap:7px;color:var(--cyan);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;letter-spacing:-.05em;margin:14px 0}.subtitle{font-size:1.12rem;color:var(--muted);max-width:680px}.hero-card,.info-card{padding:25px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--surface) 72%,var(--cyan)));box-shadow:var(--shadow)}.hero-card{color:var(--cyan);font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--cyan);border-radius:12px;background:var(--cyan);color:#00141b;padding:11px 17px;font-weight:800;margin:10px 8px 0 0;cursor:pointer}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.btn-secondary{background:transparent;color:var(--cyan)}
+    section{padding:58px 0;border-top:1px solid var(--border)}.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:26px}.section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;margin:0}.section-head p{color:var(--muted);max-width:550px;margin:0}.search-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;margin:24px 0}.input{width:100%;padding:13px 15px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text)}.input:focus{outline:2px solid var(--cyan);outline-offset:2px}.results-count{align-self:center;color:var(--muted);font-size:.9rem}.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}.ficha-card{min-width:0;padding:22px;border:1px solid var(--border);border-radius:18px;background:var(--surface);box-shadow:var(--shadow);transition:transform .2s,border-color .2s}.ficha-card:hover{transform:translateY(-3px);border-color:var(--cyan)}.ficha-card h3{margin:9px 0 5px;font-size:1.35rem}.ficha-card>p{margin:0 0 16px;color:var(--muted)}.ficha-meta{color:var(--cyan);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.detail{border-top:1px solid var(--border);padding-top:13px;margin-top:12px}.detail summary{cursor:pointer;font-weight:750;color:var(--text)}.detail summary:hover{color:var(--cyan)}.detail-content{padding-top:10px;color:var(--muted);font-size:.94rem}.detail-content h4{color:var(--text);margin:14px 0 4px}.detail-content p{margin:5px 0 10px}.detail-content ul{padding-left:20px;margin:5px 0 10px}.pending{display:inline-block;padding:3px 9px;border-radius:20px;background:rgba(255,209,102,.12);color:var(--warning);font-size:.78rem;font-weight:700}.small-note{font-size:.84rem;color:var(--muted)}.callout{border:1px solid var(--border);border-left:3px solid var(--cyan);background:var(--surface);padding:17px 20px;border-radius:12px;color:var(--muted)}.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}.how-card{padding:20px;border:1px solid var(--border);border-radius:16px;background:var(--surface)}.how-card h3{margin:0 0 8px;color:var(--cyan)}.how-card p{margin:0;color:var(--muted)}.empty{grid-column:1/-1;color:var(--muted);padding:24px;text-align:center;border:1px dashed var(--border);border-radius:14px}
+    footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);text-align:center}footer a{color:var(--cyan)}
+    @media(max-width:850px){.hero-grid{grid-template-columns:1fr}.menu-toggle{display:block}.nav nav ul{display:none;position:absolute;top:68px;left:0;right:0;padding:16px 20px;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start}.nav nav ul.open{display:flex}.section-head{display:block}.section-head p{margin-top:8px}}
+    @media(max-width:560px){.container{width:min(100% - 28px,1120px)}.hero{padding:55px 0 42px}.search-bar{grid-template-columns:1fr}.results-count{justify-self:start}.brand{font-size:.92rem}.actions{gap:5px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>🔧 Taller de Reparaciones</h1>
-            <p>Centro de recursos para técnicos especializados</p>
-        </header>
+  <header class="header"><div class="container nav">
+    <a class="brand" href="https://buendi.github.io">⚡ Superpoderes by Joseba</a>
+    <nav aria-label="Navegación principal"><ul id="navMenu"><li><a href="#inicio">Inicio</a></li><li><a href="#fabricantes">Fabricantes</a></li><li><a href="#organizar">Añadir información</a></li><li><a href="https://buendi.github.io">Blog principal</a></li></ul></nav>
+    <div class="actions"><button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema">☼</button><button class="icon-btn menu-toggle" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
+  </div></header>
+  <main id="inicio">
+    <div class="hero"><div class="container hero-grid"><div>
+      <span class="eyebrow">● Archivo técnico · Cataluña</span>
+      <h1>Máquinas recreativas tipo B</h1>
+      <p class="subtitle">Un espacio de consulta para reunir manuales, apuntes técnicos, averías y contactos de fabricantes. Fichas prácticas para ampliar y mantener entre todos.</p>
+      <a class="btn" href="#fabricantes">Consultar fabricantes ↓</a><a class="btn btn-secondary" href="#organizar">Cómo añadir datos</a>
+    </div><aside class="hero-card" aria-label="Contenido del archivo">// ARCHIVO TÉCNICO<br><br>Fabricante → Modelo → Síntoma → Comprobaciones → Solución documentada</aside></div></div>
 
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="https://buendi.github.io">← Inicio</a>
-            <span>/</span>
-            <span>Taller de Reparaciones</span>
-        </div>
+    <section id="fabricantes"><div class="container">
+      <div class="section-head"><h2>Fichas de fabricantes</h2><p>Busca por fabricante, modelo, manual, avería o contacto. Abre cada ficha para consultar y completar sus apartados.</p></div>
+      <div class="search-bar"><input id="search" class="input" type="search" placeholder="Buscar: Novomatic, error, manual, modelo…" aria-label="Buscar en las fichas"><span id="resultsCount" class="results-count" aria-live="polite"></span></div>
+      <div class="fichas" id="fichas" aria-live="polite"></div>
+      <p class="small-note" style="margin-top:18px">Los teléfonos, direcciones y enlaces de soporte se dejan pendientes hasta poder verificarlos. Confirma los datos antes de utilizarlos.</p>
+    </div></section>
 
-        <!-- Navegación secundaria -->
-        <div class="nav-secondary">
-            <a href="#guias" class="active">📚 Guías</a>
-            <a href="#recursos">📦 Recursos</a>
-            <a href="#comunidad">🤝 Comunidad</a>
-            <a href="#referencia">⚡ Guía Rápida</a>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Sección de Guías -->
-            <section class="section" id="guias">
-                <h2>📚 Guías de Reparación por Modelo</h2>
-                
-                <div class="models-section">
-                    <div class="models-grid">
-                        <!-- Novomatic -->
-                        <div class="model-card">
-                            <h4>🎰 Novomatic</h4>
-                            <p>Máquinas tragamonedas y recreativas</p>
-                            <p style="font-size: 0.9em; color: #999;">Problemas comunes, herramientas necesarias y piezas de reemplazo</p>
-                            <span class="status active">✓ Guía Completa</span>
-                            <br><br>
-                            <a href="./guias/novomatic.md" class="card-link">Ver Guía →</a>
-                        </div>
-
-                        <!-- Unidesa -->
-                        <div class="model-card">
-                            <h4>⚙️ Unidesa</h4>
-                            <p>Máquinas recreativas y equipos electrónicos</p>
-                            <p style="font-size: 0.9em; color: #999;">Diagnóstico de fallas, soluciones step-by-step y soporte</p>
-                            <span class="status active">✓ Guía Completa</span>
-                            <br><br>
-                            <a href="./guias/unidesa.md" class="card-link">Ver Guía →</a>
-                        </div>
-
-                        <!-- Próximamente -->
-                        <div class="model-card" style="opacity: 0.7;">
-                            <h4>➕ Agregar Modelo</h4>
-                            <p>¿Necesitas guía para otro modelo?</p>
-                            <p style="font-size: 0.9em; color: #999;">Solicita una nueva guía en el foro comunitario</p>
-                            <span class="status pending">⏳ Pendiente</span>
-                            <br><br>
-                            <a href="https://github.com/buendi/buendi.github.io/discussions" class="card-link">Solicitar →</a>
-                        </div>
-                    </div>
-
-                    <!-- Añadir Modelo -->
-                    <div class="add-model">
-                        <h4>🆕 ¿Falta tu modelo?</h4>
-                        <p>Estamos constantemente agregando nuevas guías. Si necesitas documentación para otro modelo o marca, no dudes en solicitarla.</p>
-                        <a href="https://github.com/buendi/buendi.github.io/discussions/new?category=general" class="btn-primary">+ Sugerir Nuevo Modelo</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección de Recursos -->
-            <section class="section" id="recursos">
-                <h2>📦 Recursos Disponibles</h2>
-                <div class="card-grid">
-                    <!-- Imágenes -->
-                    <div class="card">
-                        <div class="card-icon">📷</div>
-                        <h3>Galería de Imágenes</h3>
-                        <p>Fotos y documentación visual de reparaciones, componentes y procesos del taller.</p>
-                        <a href="./galeria/imagenes.md" class="card-link">Ver Galería →</a>
-                    </div>
-
-                    <!-- Videos -->
-                    <div class="card">
-                        <div class="card-icon">🎥</div>
-                        <h3>Tutoriales en Video</h3>
-                        <p>Colección de tutoriales en video sobre técnicas de reparación y mantenimiento.</p>
-                        <a href="./galeria/videos.md" class="card-link">Ver Videos →</a>
-                    </div>
-
-                    <!-- Foro -->
-                    <div class="card">
-                        <div class="card-icon">💬</div>
-                        <h3>Foro Comunitario</h3>
-                        <p>Comunidad activa de técnicos compartiendo experiencias, consejos y soluciones.</p>
-                        <a href="https://github.com/buendi/buendi.github.io/discussions" class="card-link">Ir al Foro →</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sección Comunitaria -->
-            <section class="section" id="comunidad">
-                <div class="community-section">
-                    <h3>🤝 Comunidad de Técnicos</h3>
-                    <p>Participa activamente en nuestro foro y comparte tu experiencia con otros profesionales</p>
-                    
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <strong>❓ Haz Preguntas</strong>
-                            <span>Obtén ayuda de técnicos experimentados</span>
-                        </div>
-                        <div class="feature-item">
-                            <strong>💡 Comparte Soluciones</strong>
-                            <span>Documenta tus mejores prácticas</span>
-                        </div>
-                        <div class="feature-item">
-                            <strong>📸 Sube Contenido</strong>
-                            <span>Fotos, videos y tutoriales</span>
-                        </div>
-                        <div class="feature-item">
-                            <strong>🔍 Busca Respuestas</strong>
-                            <span>Acceso a conocimiento colectivo</span>
-                        </div>
-                    </div>
-
-                    <br>
-                    <a href="https://github.com/buendi/buendi.github.io/discussions" class="btn-primary">Acceder al Foro</a>
-                </div>
-            </section>
-
-            <!-- Quick Reference -->
-            <section class="section" id="referencia">
-                <h2>⚡ Guía Rápida</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3>🛠️ Herramientas Básicas</h3>
-                        <p>
-                            • Destornilladores (Phillips, Plano, Torx)<br>
-                            • Multímetro digital<br>
-                            • Alcohol isopropílico<br>
-                            • Aire comprimido<br>
-                            • Cepillo antiestático
-                        </p>
-                    </div>
-
-                    <div class="card">
-                        <h3>📋 Paso a Paso</h3>
-                        <p>
-                            1. Diagnosticar el problema<br>
-                            2. Consultar guía del modelo<br>
-                            3. Preparar herramientas<br>
-                            4. Ejecutar reparación<br>
-                            5. Verificar funcionamiento
-                        </p>
-                    </div>
-
-                    <div class="card">
-                        <h3>🆘 Necesitas Ayuda</h3>
-                        <p>
-                            ✓ Lee la guía del modelo<br>
-                            ✓ Busca en el foro<br>
-                            ✓ Abre una discusión<br>
-                            ✓ Incluye detalles<br>
-                            ✓ Espera respuestas
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p><strong>🔧 Taller de Reparaciones</strong> - Centro de Recursos para Técnicos</p>
-            <p>Parte del <a href="https://buendi.github.io">Blog de Electrónica</a></p>
-            <div class="footer-links">
-                <a href="https://github.com/buendi/buendi.github.io">GitHub</a>
-                <a href="https://github.com/buendi/buendi.github.io/discussions">Foro</a>
-                <a href="./README.md">Documentación</a>
-            </div>
-            <p style="margin-top: 20px; opacity: 0.7;">Última actualización: Junio 2026</p>
-        </footer>
-    </div>
+    <section id="organizar"><div class="container">
+      <div class="section-head"><h2>Cómo ir añadiendo información</h2><p>La web es estática; puedes mantener el archivo editando la lista de fichas de este mismo archivo.</p></div>
+      <div class="how-grid">
+        <article class="how-card"><h3>📘 Manuales</h3><p>Añade nombre, modelo, revisión, idioma, fecha y un enlace a una copia autorizada o a la documentación del fabricante.</p></article>
+        <article class="how-card"><h3>🧰 Averías</h3><p>Registra síntoma, modelo y versión, comprobaciones realizadas, causa confirmada y solución. Separa hipótesis de resultados verificados.</p></article>
+        <article class="how-card"><h3>📞 Contactos</h3><p>Guarda teléfono, departamento, horario, fecha de verificación y fuente pública. No publiques datos personales sin permiso.</p></article>
+        <article class="how-card"><h3>⚠️ Seguridad</h3><p>Desconecta y asegura el equipo antes de intervenir. Respeta normativa, precintos y procedimientos; deriva trabajos regulados a personal autorizado.</p></article>
+      </div>
+      <p class="callout" style="margin-top:20px"><strong>Plantilla recomendada:</strong> fabricante · modelo/plataforma · síntoma o tema · pasos de diagnóstico · solución comprobada · repuestos/referencias · fuente del dato · fecha y autor. Evita subir manuales protegidos si no tienes autorización.</p>
+      <a class="btn btn-secondary" href="https://github.com/buendi/buendi.github.io/edit/main/taller-reparaciones/index.html">Editar esta página en GitHub</a>
+    </div></section>
+  </main>
+  <footer><div class="container">© 2026 Taller Jomali · Archivo técnico comunitario · <a href="https://buendi.github.io">Volver al blog principal</a></div></footer>
+  <script>
+    'use strict';
+    // Para ampliar el archivo: duplica una ficha de este arreglo y completa sus apartados.
+    const fabricantes = [
+      {id:'novomatic',nombre:'Novomatic',categoria:'Fabricante',icono:'🎰',resumen:'Fichas de máquinas, manuales técnicos, incidencias y recursos de servicio.',modelos:[],manuales:[],averias:[],tecnica:[],contactos:[]},
+      {id:'unidesa',nombre:'Unidesa',categoria:'Fabricante',icono:'⚙️',resumen:'Documentación y notas de mantenimiento de máquinas y plataformas Unidesa.',modelos:[],manuales:[],averias:[],tecnica:[],contactos:[]},
+      {id:'zitro',nombre:'Zitro',categoria:'Fabricante',icono:'🎲',resumen:'Espacio para recopilar información técnica, modelos y consultas de servicio.',modelos:[],manuales:[],averias:[],tecnica:[],contactos:[]},
+      {id:'innovate',nombre:'Innovate',categoria:'Fabricante',icono:'🔩',resumen:'Apuntes de identificación, documentación, diagnóstico y reparación.',modelos:[],manuales:[],averias:[],tecnica:[],contactos:[]},
+      {id:'merkur',nombre:'Merkur',categoria:'Fabricante',icono:'🛠️',resumen:'Fichas de equipos, manuales disponibles y averías documentadas.',modelos:[],manuales:[],averias:[],tecnica:[],contactos:[]},
+      {id:'recreativos-franco',nombre:'Recreativos Franco',categoria:'Fabricante',icono:'🧰',resumen:'Archivo para modelos, repuestos, incidencias y documentación técnica.',modelos:[],manuales:[],averias:[],tecnica:[],contactos:[]}
+    ];
+    const $ = (id) => document.getElementById(id);
+    const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const asArray = (value) => Array.isArray(value) ? value : [];
+    function renderList(items, emptyText) {
+      if (!items.length) return `<p class="small-note"><span class="pending">Pendiente de añadir</span> ${escapeHTML(emptyText)}</p>`;
+      return `<ul>${items.map((item) => `<li>${escapeHTML(typeof item === 'string' ? item : item.text || item.titulo || '')}${item.url ? ` — <a href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">Consultar fuente ↗</a>` : ''}</li>`).join('')}</ul>`;
+    }
+    function renderFichas() {
+      const query = $('search').value.trim().toLocaleLowerCase('es');
+      const visibles = fabricantes.filter((f) => JSON.stringify(f).toLocaleLowerCase('es').includes(query));
+      $('resultsCount').textContent = `${visibles.length} ${visibles.length === 1 ? 'fabricante' : 'fabricantes'}`;
+      $('fichas').innerHTML = visibles.length ? visibles.map((f) => `
+        <article class="ficha-card" id="${escapeHTML(f.id)}">
+          <span class="ficha-meta">${escapeHTML(f.categoria)} · Cataluña</span>
+          <h3>${escapeHTML(f.icono)} ${escapeHTML(f.nombre)}</h3><p>${escapeHTML(f.resumen)}</p>
+          <details class="detail"><summary>Modelos y plataformas</summary><div class="detail-content">${renderList(asArray(f.modelos),'Añade aquí modelos y plataformas identificados.')}</div></details>
+          <details class="detail"><summary>Manuales y documentación</summary><div class="detail-content"><p>Incluye título, modelo, revisión, idioma y fuente del documento.</p>${renderList(asArray(f.manuales),'Añade referencias o enlaces autorizados.')}</div></details>
+          <details class="detail"><summary>Averías y soluciones</summary><div class="detail-content"><p>Documenta síntomas y comprobaciones; marca claramente qué solución está verificada.</p>${renderList(asArray(f.averias),'Todavía no hay incidencias documentadas.')}</div></details>
+          <details class="detail"><summary>Información técnica y repuestos</summary><div class="detail-content">${renderList(asArray(f.tecnica),'Añade referencias, notas técnicas y compatibilidades confirmadas.')}</div></details>
+          <details class="detail"><summary>Teléfonos y soporte</summary><div class="detail-content">${renderList(asArray(f.contactos),'Añade solo contactos públicos o autorizados y anota cuándo se verificaron.')}</div></details>
+        </article>`).join('') : '<p class="empty">No hay fichas que coincidan. Prueba con otro término.</p>';
+    }
+    $('search').addEventListener('input', renderFichas);
+    $('themeBtn').addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try { localStorage.setItem('taller-theme', next); } catch {}
+    });
+    try { document.documentElement.dataset.theme = localStorage.getItem('taller-theme') || 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; }
+    $('menuBtn').addEventListener('click', () => {
+      const menu = $('navMenu');
+      const expanded = menu.classList.toggle('open');
+      $('menuBtn').setAttribute('aria-expanded', String(expanded));
+    });
+    document.querySelectorAll('#navMenu a').forEach((link) => link.addEventListener('click', () => {
+      $('navMenu').classList.remove('open');
+      $('menuBtn').setAttribute('aria-expanded','false');
+    }));
+    renderFichas();
+  </script>
 </body>
 </html>
