@@ -3,8 +3,8 @@
     {
       "id": 1,
       "numero": 1,
-      "titulo": "Fundamentos: Del Átomo a la Corriente",
-      "fecha": "2026-Abril",
+      "titulo": "Fundamentos: Nivel Básico",
+      "fecha": "2026-Noviembre",
       "categoria": "Teoría",
       "excerpt": "Estructura atómica, electrones libres, diferencia de potencial, energía, vatios. Introducción a la Ley de Ohm y aprendemos a leer Resistencias",
       "tags": ["átomo", "ohm", "Resistencia", "voltaje"],
@@ -44,6 +44,11 @@
           "titulo": "PDF - Fundamentos",
           "tipo": "pdf",
           "url": "PDF/mes1.pdf"
+        },
+        {
+          "titulo": "PDF - Multímetro",
+          "tipo": "pdf",
+          "url": "https://github.com/buendi/buendi.github.io/blob/main/PDF/Guia_Multimetro_y_Ejercicios_Resueltos_Electronica_Basica.pdf"
         }
       ],
       "reto": {
