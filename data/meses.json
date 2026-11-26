@@ -41,7 +41,7 @@
 
       "recursos": [
         {
-          "titulo": "PDF Mes 1 - Fundamentos",
+          "titulo": "PDF - Fundamentos",
           "tipo": "pdf",
           "url": "PDF/mes1.pdf"
         }
@@ -121,7 +121,7 @@
           "url": "PDF/mes2.pdf"
         },
         {
-          "titulo": "PDF Mes 2 - Condensadores",
+          "titulo": "PDF - Condensadores",
           "tipo": "pdf",
           "url": "PDF/solucionCapa.pdf"
         }
@@ -196,12 +196,12 @@
       ],
       "recursos": [
         {
-          "titulo": "PDF Mes 2 - Semiconductores",
+          "titulo": "PDF - Semiconductores",
           "tipo": "pdf",
           "url": "PDF/mes2.pdf"
         },
         {
-          "titulo": "PDF Mes 2 - Condensadores",
+          "titulo": "PDF - Condensadores",
           "tipo": "pdf",
           "url": "PDF/solucionCapa.pdf"
         }
