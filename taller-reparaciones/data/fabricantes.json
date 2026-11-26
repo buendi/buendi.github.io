@@ -1,0 +1,70 @@
+{
+  "fabricantes": [
+    {
+      "id": "novomatic",
+      "nombre": "Novomatic",
+      "icono": "🎰",
+      "resumen": "Fichas de máquinas, manuales técnicos, incidencias y recursos de servicio.",
+      "modelos": [],
+      "manuales": [],
+      "averias": [],
+      "tecnica": [],
+      "contactos": []
+    },
+    {
+      "id": "unidesa",
+      "nombre": "Unidesa",
+      "icono": "⚙️",
+      "resumen": "Documentación y notas de mantenimiento de máquinas y plataformas Unidesa.",
+      "modelos": [],
+      "manuales": [],
+      "averias": [],
+      "tecnica": [],
+      "contactos": []
+    },
+    {
+      "id": "zitro",
+      "nombre": "Zitro",
+      "icono": "🎲",
+      "resumen": "Espacio para recopilar información técnica, modelos y consultas de servicio.",
+      "modelos": [],
+      "manuales": [],
+      "averias": [],
+      "tecnica": [],
+      "contactos": []
+    },
+    {
+      "id": "innovate",
+      "nombre": "Innovate",
+      "icono": "🔩",
+      "resumen": "Apuntes de identificación, documentación, diagnóstico y reparación.",
+      "modelos": [],
+      "manuales": [],
+      "averias": [],
+      "tecnica": [],
+      "contactos": []
+    },
+    {
+      "id": "merkur",
+      "nombre": "Merkur",
+      "icono": "🛠️",
+      "resumen": "Fichas de equipos, manuales disponibles y averías documentadas.",
+      "modelos": [],
+      "manuales": [],
+      "averias": [],
+      "tecnica": [],
+      "contactos": []
+    },
+    {
+      "id": "recreativos-franco",
+      "nombre": "Recreativos Franco",
+      "icono": "🧰",
+      "resumen": "Archivo para modelos, repuestos, incidencias y documentación técnica.",
+      "modelos": [],
+      "manuales": [],
+      "averias": [],
+      "tecnica": [],
+      "contactos": []
+    }
+  ]
+}
