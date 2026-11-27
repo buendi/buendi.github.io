@@ -6,8 +6,8 @@
       "icono": "🎰",
       "resumen": "Fichas de máquinas, manuales técnicos, incidencias y recursos de servicio.",
       "modelos": [],
-      "manuales": [{ "titulo": "Winner HD+", "modelo": "Modelo A", "url": "https://novomatic-spain.com/system/files/downloads/2024/09/5091000445_Manual_Tecnico_Winner_27_HD_WI2321.pdf" },
-                   { "titulo": "Winner Slim", "modelo": "Modelo B", "url": "https://novomatic-spain.com/system/files/downloads/2026/10/5091000507_1_Manual_Tecnico_SLIM_WI2421%20%281%29.pdf" }],
+      "manuales": [{ "titulo": "Winner HD+", "modelo": "Rocket Rush", "url": "https://novomatic-spain.com/system/files/downloads/2024/09/5091000445_Manual_Tecnico_Winner_27_HD_WI2321.pdf" },
+                   { "titulo": "Winner Slim", "modelo": "Symphony", "url": "https://novomatic-spain.com/system/files/downloads/2026/10/5091000507_1_Manual_Tecnico_SLIM_WI2421%20%281%29.pdf" }],
       "averias": [],
       "tecnica": [],
       "contactos": []
