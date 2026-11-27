@@ -7,7 +7,7 @@
       "resumen": "Fichas de máquinas, manuales técnicos, incidencias y recursos de servicio.",
       "modelos": [],
       "manuales": [{ "titulo": "Winner HD+", "modelo": "Rocket Rush", "url": "https://github.com/buendi/buendi.github.io/blob/main/PDF/WinnerHD%2B.pdf" },
-                   { "titulo": "Winner Slim", "modelo": "Symphony", "url": "PDF/SLIM.pdf" }],
+                   { "titulo": "Winner Slim", "modelo": "Symphony", "url": "guias/SLIM.pdf" }],
       "averias": [],
       "tecnica": [{"titulo": "Firmware 1.24 dataset EUR01019"}],
       "contactos": []
