@@ -9,7 +9,7 @@
       "manuales": [{ "titulo": "Winner HD+", "modelo": "Rocket Rush", "url": "https://novomatic-spain.com/system/files/downloads/2024/09/5091000445_Manual_Tecnico_Winner_27_HD_WI2321.pdf" },
                    { "titulo": "Winner Slim", "modelo": "Symphony", "url": "https://novomatic-spain.com/system/files/downloads/2026/10/5091000507_1_Manual_Tecnico_SLIM_WI2421%20%281%29.pdf" }],
       "averias": [],
-      "tecnica": ["Firmware 1.24 dataset EUR01019"],
+      "tecnica": [{"titulo": "Firmware 1.24 dataset EUR01019"}],
       "contactos": []
     },
     {
