@@ -18,7 +18,8 @@
       "icono": "⚙️",
       "resumen": "Documentación y notas de mantenimiento de máquinas y plataformas Unidesa.",
       "modelos": [],
-      "manuales": [],
+      "manuales": [{ "titulo": "Manhattan", "modelo": "Omega Link", "url": "https://www.unidesa.com/wp-content/uploads/2025/11/SB_MH1714_20250908_BR.pdf" },
+                   { "titulo": "Manhattan", "modelo": "Mirage", "url": "https://www.unidesa.com/wp-content/uploads/2025/04/SB_MH1709_20250617_BR.pdf" }],
       "averias": [],
       "tecnica": [],
       "contactos": []
